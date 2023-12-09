@@ -1,0 +1,19 @@
+1 Ray Kulit
+2 Melin Bedah
+3 Abiyyu Anak
+4 Harits Jantung
+5 Andhika Otak
+
+AKM Akumah 20
+GTW Gatau 13
+WOW Suprise 15
+IBU Ibuibu 39
+NNK Nenek 60
+
+1 AKM
+2 AKM
+3 GTW
+3 AKM
+4 IBU
+5 NNK
+1 NNK
