@@ -14,7 +14,7 @@ using namespace std;
 #define dokter(P) P->dokter
 
 typedef struct elmlist_relasi *address_relasi;
-// SLL
+// Single Linked List
 struct elmlist_relasi{
     address_relasi next;
     address_pasien pasien;
