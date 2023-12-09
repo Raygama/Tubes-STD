@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1702098612 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.cpp
+	"pasien.h"
+
+1702098686 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.h
+	<iostream>
+
+1702102767 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.cpp
+	"relasi.h"
+	"pasien.h"
+	"dokter.h"
+
+1702102727 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.h
+	"relasi.h"
+	"pasien.h"
+	"dokter.h"
+	<iostream>
+
+1702098655 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.h
+	<iostream>
+
+1702102627 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.cpp
+	"dokter.h"
+
+1702102978 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\main.cpp
+	<iostream>
+	"dokter.h"
+	"pasien.h"
+	"relasi.h"
+
