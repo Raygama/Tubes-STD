@@ -9,20 +9,23 @@
 using namespace std;
 
 #define next(P) P->next
+#define prev(P) P->prev
+#define last(L) L.last
 #define first(L) L.first
 #define pasien(P) P->pasien
 #define dokter(P) P->dokter
 
 typedef struct elmlist_relasi *address_relasi;
-// Single Linked List
+// Double Linked List
 struct elmlist_relasi{
     address_relasi next;
+    address_relasi prev;
     address_pasien pasien;
     address_dokter dokter;
 };
 
 struct List_relasi{
-    address_relasi first;
+    address_relasi first, last;
 };
 
 void createList(List_relasi &L);

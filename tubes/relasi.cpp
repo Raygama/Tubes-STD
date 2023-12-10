@@ -11,23 +11,29 @@ address_relasi alokasi(address_dokter D, address_pasien P) {
     pasien(Q) = P;
     dokter(Q) = D;
     next(Q) = NULL;
+    prev(Q) = NULL;
     return Q;
 }
 
 void insertFirst(List_relasi &L, address_relasi P) {
-    next(P) = first(L);
-    first(L) = P;
+    if(first(L) == NULL) {
+        first(L) = P;
+        last(L) = P;
+    } else {
+        next(P) = first(L);
+        prev(first(L)) = P;
+        first(L) = P;
+    }
 }
 
 void insertLast(List_relasi &L, address_relasi P) {
-    address_relasi Q = first(L);
-    if (first(L) == NULL) {
+    if(first(L) == NULL) {
         first(L) = P;
+        last(L) = P;
     } else {
-        while (next(Q) != NULL) {
-            Q = next(Q);
-        }
-        next(Q) = P;
+        next(last(L)) = P;
+        prev(P) = last(L);
+        last(L) = P;
     }
 }
 

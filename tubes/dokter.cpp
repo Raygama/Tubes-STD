@@ -5,6 +5,7 @@ void createList(List_dokter &L) {
     * FS : first(L) diset Nil
     */
     first(L) = NULL;
+    last(L) = NULL;
 }
 
 address_dokter alokasi(infotype_dokter x) {
@@ -16,6 +17,7 @@ address_dokter alokasi(infotype_dokter x) {
     P = new elmlist_dokter;
     info(P) = x;
     next(P) = NULL;
+    prev(P) = NULL;
     return P;
 }
 
@@ -25,17 +27,12 @@ void insertFirst(List_dokter &L, address_dokter P) {
     * FS : elemen yang ditunjuk P menjadi elemen pertama pada List_dokter L
     *      next dari last elemen menunjuk ke first elemen
     */
-    address_dokter Q;
     if(first(L) == NULL) {
         first(L) = P;
-        next(P) = P;
+        last(L) = P;
     } else {
-        Q = first(L);
-        while(next(Q) != first(L)) {
-            Q = next(Q);
-        }
         next(P) = first(L);
-        next(Q) = P;
+        prev(first(L)) = P;
         first(L) = P;
     }
 }
@@ -46,17 +43,13 @@ void insertLast(List_dokter &L, address_dokter P) {
     * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List_dokter L
     *      next dari last elemen menunjuk ke first elemen
     */
-    address_dokter Q;
     if(first(L) == NULL) {
         first(L) = P;
-        next(P) = P;
+        last(L) = P;
     } else {
-        Q = first(L);
-        while(next(Q) != first(L)) {
-            Q = next(Q);
-        }
-        next(P) = first(L);
-        next(Q) = P;
+        next(last(L)) = P;
+        prev(P) = last(L);
+        last(L) = P;
     }
 }
 
@@ -69,7 +62,7 @@ void printInfo(List_dokter L) {
         do {
             cout << info(P).id << " " << info(P).nama << " " << info(P).spesialis << endl;
             P = next(P);
-        } while((P)!=first(L));
+        } while((P)!=NULL);
     }
 }
 

@@ -5,10 +5,12 @@
 using namespace std;
 
 #define first(L) L.first
+#define last(L) L.last
+#define prev(P) P->prev
 #define next(P) P->next
 #define info(P) P->info
 
-// CSLL
+// DLL
 struct infotype_dokter {
     string id, nama, spesialis;
 };
@@ -18,10 +20,11 @@ typedef struct elmlist_dokter *address_dokter;
 struct elmlist_dokter {
     infotype_dokter info;
     address_dokter next;
+    address_dokter prev;
 };
 
 struct List_dokter {
-    address_dokter first;
+    address_dokter first, last;
 };
 
 void createList(List_dokter &L);
