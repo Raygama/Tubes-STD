@@ -28,32 +28,41 @@
 	"pasien.h"
 	"relasi.h"
 
-1702105901 source:c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.cpp
+1702214290 source:c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.cpp
 	"dokter.h"
 
-1702105901 c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.h
+1702214290 c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.h
 	<iostream>
 
-1702105901 source:c:\users\melin\documents\tubes std\tubes-std\tubes\main.cpp
+1702108269 source:c:\users\melin\documents\tubes std\tubes-std\tubes\main.cpp
 	<iostream>
 	"dokter.h"
 	"pasien.h"
 	"relasi.h"
 
-1702105901 c:\users\melin\documents\tubes std\tubes-std\tubes\pasien.h
+1702107575 c:\users\melin\documents\tubes std\tubes-std\tubes\pasien.h
 	<iostream>
 
-1702105901 c:\users\melin\documents\tubes std\tubes-std\tubes\relasi.h
+1702214290 c:\users\melin\documents\tubes std\tubes-std\tubes\relasi.h
 	"relasi.h"
 	"pasien.h"
 	"dokter.h"
 	<iostream>
 
-1702105901 source:c:\users\melin\documents\tubes std\tubes-std\tubes\pasien.cpp
+1702107575 source:c:\users\melin\documents\tubes std\tubes-std\tubes\pasien.cpp
 	"pasien.h"
 
-1702105901 source:c:\users\melin\documents\tubes std\tubes-std\tubes\relasi.cpp
+1702214290 source:c:\users\melin\documents\tubes std\tubes-std\tubes\relasi.cpp
 	"relasi.h"
 	"pasien.h"
 	"dokter.h"
+
+1702451447 source:c:\users\melin\documents\tubes std\tubes-std\tubes\menu.cpp
+	"dokter.h"
+	"pasien.h"
+	"relasi.h"
+	"Menu.h"
+
+1702450386 c:\users\melin\documents\tubes std\tubes-std\tubes\menu.h
+	<iostream>
 
