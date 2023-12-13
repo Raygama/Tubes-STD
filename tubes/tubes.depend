@@ -57,3 +57,32 @@
 	"pasien.h"
 	"dokter.h"
 
+1702445743 source:d:\std\tubes-std\tubes\dokter.cpp
+	"dokter.h"
+
+1702445743 d:\std\tubes-std\tubes\dokter.h
+	<iostream>
+
+1702445743 source:d:\std\tubes-std\tubes\pasien.cpp
+	"pasien.h"
+
+1702445743 d:\std\tubes-std\tubes\pasien.h
+	<iostream>
+
+1702445743 source:d:\std\tubes-std\tubes\relasi.cpp
+	"relasi.h"
+	"pasien.h"
+	"dokter.h"
+
+1702445743 d:\std\tubes-std\tubes\relasi.h
+	"relasi.h"
+	"pasien.h"
+	"dokter.h"
+	<iostream>
+
+1702445794 source:d:\std\tubes-std\tubes\main.cpp
+	<iostream>
+	"dokter.h"
+	"pasien.h"
+	"relasi.h"
+

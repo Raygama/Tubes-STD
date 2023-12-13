@@ -7,6 +7,7 @@ using namespace std;
 
 int main()
 {
+    cout << "Lagi praktikum" << endl;
     int i;
     List_dokter LD;
     List_pasien LP;
