@@ -15,6 +15,31 @@ address_relasi alokasi(address_dokter D, address_pasien P) {
     return Q;
 }
 
+bool cekAvailabilityDokter(address_dokter D) {
+    return !info(D).status;
+}
+
+void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR) {
+    address_dokter D;
+    string kode;
+    cout << "Masukan kode dokter yang ingin dicari: ";
+    cin >> kode;
+    D = findElm(LD, kode);
+    cout << "Data Dokter: " << endl;
+    cout << info(D).kode << " " << info(D).nama << " " << info(D).spesialis << " " << info(D).status << endl;
+
+    cout << endl;
+    cout << "Data Pasien: " << endl;
+    address_relasi P = first(LR);
+    while(P !=NULL) {
+        if (dokter(P) == D) {
+            cout << info(pasien(P)).id << " " << info(pasien(P)).nama << " " << info(pasien(P)).umur << info(pasien(P)).status << endl;
+        }
+        P = next(P);
+    }
+
+}
+
 void insertFirst(List_relasi &L, address_relasi P) {
     if(first(L) == NULL) {
         first(L) = P;
@@ -60,4 +85,26 @@ address_relasi findElm(List_relasi L, address_dokter D, address_pasien P) {
 void insertAfter(address_relasi &Prec, address_relasi P) {
     next(P) = next(Prec);
     next(Prec) = P;
+}
+
+void deleteElm(List_relasi &L, address_relasi prec, address_relasi &p) {
+    if (prec == first(L)) {
+        p = prec;
+        first(L) = next(p);
+        prev(first(L)) = NULL;
+        next(p) = NULL;
+    } else if (prec == last(L)) {
+        p = prec;
+        last(L) = prev(p);
+        next(last(L)) = NULL;
+        prev(p) = NULL;
+    } else {
+        address_relasi Q;
+        p = prec;
+        Q = prev(prec);
+        next(Q) = next(p);
+        prev(next(Q)) = Q;
+        next(p) = NULL;
+        prev(p) = NULL;
+    }
 }

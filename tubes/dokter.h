@@ -12,7 +12,8 @@ using namespace std;
 
 // DLL
 struct infotype_dokter {
-    string id, nama, spesialis;
+    string kode, nama, spesialis;
+    bool status;
 };
 
 typedef struct elmlist_dokter *address_dokter;
@@ -31,13 +32,13 @@ void createList(List_dokter &L);
 void insertFirst(List_dokter &L, address_dokter P);
 void insertAfter(List_dokter &L, address_dokter Prec, address_dokter P);
 void insertLast(List_dokter &L, address_dokter P);
-void deleteFirst(List_dokter &L, address_dokter &P);
-void deleteLast(List_dokter &L, address_dokter &P);
-void deleteAfter(List_dokter &L, address_dokter Prec, address_dokter &P);
+void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p);
+void showSpecialist(List_dokter L, string spesialis);
+void isiDokter(List_dokter &L);
 
 address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);
-address_dokter findElm(List_dokter L, string id);
+address_dokter findElm(List_dokter L, string kode);
 void printInfo(List_dokter L);
 
 #endif // DOKTER_H_INCLUDED

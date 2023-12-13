@@ -35,6 +35,8 @@ void insertAfter(address_relasi Prec, address_relasi P);
 void deleteFirst(List_relasi &L, address_relasi &P);
 void deleteLast(List_relasi &L, address_relasi &P);
 void deleteAfter(address_relasi Prec, address_relasi &P);
+bool cekAvailabilityDokter(address_dokter D);
+void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR);
 
 address_relasi alokasi( address_dokter P, address_pasien C);
 void dealokasi(address_relasi &P);
