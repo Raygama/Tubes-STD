@@ -1,29 +1,28 @@
 # depslib dependency file v1.0
-1702532691 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.cpp
+1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.cpp
 	"pasien.h"
 
-1702532705 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.h
+1702535099 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.h
 	<iostream>
 
-1702532576 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.cpp
+1702534905 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.cpp
+	"relasi.h"
+	"pasien.h"
+	"dokter.h"
+
+1702534901 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.h
 	"relasi.h"
 	"pasien.h"
 	"dokter.h"
 	<iostream>
 
-1702532469 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.h
-	"relasi.h"
-	"pasien.h"
-	"dokter.h"
+1702534901 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.h
 	<iostream>
 
-1702532608 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.h
-	<iostream>
-
-1702532617 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.cpp
+1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.cpp
 	"dokter.h"
 
-1702532544 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\main.cpp
+1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\main.cpp
 	<iostream>
 	"dokter.h"
 	"pasien.h"
@@ -86,4 +85,13 @@
 	"dokter.h"
 	"pasien.h"
 	"relasi.h"
+
+1702535247 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.cpp
+	"dokter.h"
+	"pasien.h"
+	"relasi.h"
+	"Menu.h"
+
+1702535237 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.h
+	<iostream>
 

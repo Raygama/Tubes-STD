@@ -19,8 +19,9 @@ void isiPasien(List_pasien &L) {
     int n, i;
     infotype_pasien xP;
     address_pasien P;
-    cout << "Jumlah data yang ditambahkan: ";
+    cout << "Jumlah data pasien yang ditambahkan: ";
     cin >> n;
+    cout << "Masukan data pasien: Nama, Umur" << endl;
     for (i = 1; i <= n; i++) {
         cin >> xP.nama >> xP.umur;
         P = alokasi(xP);

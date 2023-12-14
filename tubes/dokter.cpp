@@ -57,8 +57,10 @@ void isiDokter(List_dokter &L) {
     int n, i;
     infotype_dokter xD;
     address_dokter D;
-    cout << "Jumlah data yang ditambahkan: ";
+    cout << "Jumlah data dokter yang ditambahkan: ";
     cin >> n;
+
+    cout << "Masukan data dokter: Kode, Nama, Spesialis" << endl;
     for (i = 1; i <= n; i++) {
         cin >> xD.kode >> xD.nama >> xD.spesialis;
         D = alokasi(xD);

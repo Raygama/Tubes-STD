@@ -7,7 +7,6 @@ using namespace std;
 
 int main()
 {
-    cout << "Lagi praktikum" << endl;
     string opsi = "";
     int i;
     List_dokter LD;
@@ -24,10 +23,8 @@ int main()
     createList(LP);
     createList(LR);
 
-    cout << "Masukan data dokter: Kode, Nama, Spesialis" << endl;
     isiDokter(LD);
 
-    cout << "Masukan data pasien: Nama, Umur" << endl;
     isiPasien(LP);
 
     string kode;
