@@ -35,6 +35,7 @@ void insertFirst(List_pasien &L, address_pasien P);
 void insertLast(List_pasien &L, address_pasien P);
 void insertAfter(address_pasien Prec, address_pasien P);
 void deleteElm(List_pasien &L, address_pasien prec, address_pasien &p);
+void isiPasien(List_pasien &L);
 
 address_pasien alokasi(infotype_pasien x);
 void dealokasi(address_pasien &P);
