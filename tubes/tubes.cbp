@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
 		<Unit filename="dokter.cpp" />
 		<Unit filename="dokter.h" />
 		<Unit filename="main.cpp" />
