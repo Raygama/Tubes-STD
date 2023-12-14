@@ -152,8 +152,10 @@ void pilihMenu(){
 
         } else if (xData == 2) {
 
+        } else if (xData == 3) {
+
         }
-    }
+        }
     }
     menuAwal();
 }
