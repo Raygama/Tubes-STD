@@ -1,32 +1,33 @@
 # depslib dependency file v1.0
-1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.cpp
+1702537841 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.cpp
 	"pasien.h"
 
-1702535099 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.h
+1702537841 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\pasien.h
 	<iostream>
 
-1702534905 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.cpp
+1702537841 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.cpp
 	"relasi.h"
 	"pasien.h"
 	"dokter.h"
 
-1702534901 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.h
+1702537841 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\relasi.h
 	"relasi.h"
 	"pasien.h"
 	"dokter.h"
 	<iostream>
 
-1702534901 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.h
+1702537841 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.h
 	<iostream>
 
-1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.cpp
+1702537841 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\dokter.cpp
 	"dokter.h"
 
-1702534901 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\main.cpp
+1702703648 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\main.cpp
 	<iostream>
 	"dokter.h"
 	"pasien.h"
 	"relasi.h"
+	"Menu.h"
 
 1702105901 source:c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.cpp
 	"dokter.h"
@@ -86,12 +87,12 @@
 	"pasien.h"
 	"relasi.h"
 
-1702535247 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.cpp
+1702703182 source:c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.cpp
 	"dokter.h"
 	"pasien.h"
 	"relasi.h"
 	"Menu.h"
 
-1702535237 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.h
+1702703158 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.h
 	<iostream>
 

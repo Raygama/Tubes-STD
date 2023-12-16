@@ -36,126 +36,96 @@ void menuAwal(){
     cout << "||                PILIH MENU               ||" << endl;
     cout << "|| 1. Menambah data Dokter/Pasien          ||" << endl;
     cout << "|| 2. Menghapus data Dokter/Pasien         ||" << endl;
-    cout << "|| 3. Mencari data Dokter/Pasien           ||" << endl;
-    cout << "|| 4. Menghubungkan Data Dokter dan Pasien ||" << endl;
-    cout << "|| 5. Menghitung jumlah data Dokter/Pasien ||" << endl;
-    cout << "|| 6. Menampilkan data Dokter/Pasien       ||" << endl;
+    cout << "|| 3. Menyelesaikan Kunjungan Dokter       ||" << endl;
+    cout << "|| 4. Mencari data Dokter/Pasien           ||" << endl;
+    cout << "|| 5. Menjadwalkan Kunjungan Dokter        ||" << endl;
+    cout << "|| 6. Menghitung jumlah data Dokter/Pasien ||" << endl;
+    cout << "|| 7. Menampilkan data Dokter/Pasien       ||" << endl;
+    cout << "|| 8. Quit                                 ||" << endl;
     cout << "=============================================" << endl;
 }
 
-void pilihMenu(){
-    int x, xData, xTambah;
+void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
+    int x, xData, xTambah, opsi;
     infotype_dokter xKodeD;
     infotype_dokter xD;
     infotype_pasien xP;
-    cout << "Pilihan Menu : ";
-    cin >> x;
-    if ( x == 1) {
-        cout << "Menambah data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << "Data : ";
-        cin >> xData;
-        if (xData == 1) {
-            /*cout << "Jumlah data yang ditambahkan : "
-            cin >> xTambah;
-            cout << "Masukan data dokter: ID, Nama, Spesialis" << endl;
-            for (i = 1; i <= xTambah; i++) {
-                cin >> xD.id >> xD.nama >> xD.spesialis;
-                D = alokasi(xD);
-                insertLast(LD, D);
-            } */
-        } else if (xData == 2) {
-            /* cout << "Jumlah data yang ditambahkan : "
-            cin >> xTambah;
-            cout << "Masukan data pasien: Kode, Nama, Umur" << endl;
-            for (i = 1; i <= xTambah; i++) {
-                cin >> xP.kode >> xP.nama >> xP.umur;
-                P = alokasi(xP);
-                insertLast(LP, P);
-            }
-        } */
-    } else if (x == 2) {
-        cout << "Menghapus data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << "Data : ";
-        cin >> xData;
-        if (xData == 1) {
-            /* cout << "Kode Dokter yang akan dihapus : ";
-            cin >> xKodeD;
-            // function baru cari dokter selama tdak di appoiment
 
-            bool status = //fucntion
-            if (status) {
-                //delete
+    do {
+        menuAwal();
+        cin >> x;
+        if ( x == 1) {
+            cout << "Opsi 1" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
             } else {
-                cout << " Dokter Sedang Melayani Pasien " << endl;
-            } */
-        } else if (xData == 2) {
-            /* cout << "Kode Pasien yang akan dihapus : ";
-            cin >> xKode */
-            //
+                continue;
+            }
+        } else if (x == 2) {
+            cout << "Opsi 2" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else if (x == 3) {
+            cout << "Opsi 3" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else if (x == 4) {
+            cout << "Opsi 4" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else if (x == 5) {
+            cout << "Opsi 5" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else if (x == 6) {
+            cout << "Opsi 6" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else if (x == 7) {
+            cout << "Opsi 7" << endl;
+            cout << "1. [WIP]" << endl;
+            cout << "2. Back" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                // WIP
+            } else {
+                continue;
+            }
+        } else {
+            break;
         }
-
-    } else if (x == 3) {
-        cout << "Mencari data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << "Data : ";
-        cin >> xData;
-
-        if(xData == 1) {
-           /* */
-        } else if (xData == 2) {
-            /* cout << "Masukan kode dokter yang dicari : ";
-            cin >> xKode;
-            adr data = findElm(L, xKode);*/
-        }
-
-    } else if (x == 4) {
-        cout << "Menghubungkan Data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << "Data : ";
-        cin >> xData;
-
-        if (xData == 1) {
-
-        } else if (xData == 2) {
-
-        }
-
-    } else if (x == 5) {
-        cout << "Menghitung Jumlah Data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << "Data : ";
-        cin >> xData;
-
-        if (xData == 1) {
-
-        } else if (xData == 2) {
-
-        }
-
-
-    } else if (x == 6) {
-        cout << "Menampilkan Data" << endl;
-        cout << " 1. Dokter" << endl;
-        cout << " 2. Pasien" << endl;
-        cout << " 3. Dokter, Pasien beserta relasinya" << endl;
-        cout << "Data : ";
-        cin >> xData;
-
-        if (xData == 1) {
-
-        } else if (xData == 2) {
-
-        } else if (xData == 3) {
-
-        }
-        }
-    }
-    menuAwal();
+    } while (x != 8);
 }

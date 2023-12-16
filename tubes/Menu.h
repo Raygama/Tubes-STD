@@ -8,6 +8,6 @@ void pembuka();
 
 void menuAwal();
 
-void pilihMenu();
+void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR);
 
 #endif // MENU_H_INCLUDED

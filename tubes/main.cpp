@@ -4,9 +4,12 @@ using namespace std;
 #include "dokter.h"
 #include "pasien.h"
 #include "relasi.h"
+#include "Menu.h"
 
 int main()
 {
+
+
     string opsi = "";
     int i;
     List_dokter LD;
@@ -23,6 +26,9 @@ int main()
     createList(LP);
     createList(LR);
 
+    pilihMenu(LD, LP, LR);
+
+    /*
     isiDokter(LD);
 
     isiPasien(LP);
@@ -72,4 +78,5 @@ int main()
     cout << endl;
 
     cariDokter(LD, LP, LR);
+    */
 }
