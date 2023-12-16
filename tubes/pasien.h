@@ -41,6 +41,7 @@ address_pasien alokasi(infotype_pasien x);
 void dealokasi(address_pasien &P);
 address_pasien findElm(List_pasien L, int id);
 void printInfo(List_pasien L);
+int countPasien(List_pasien L);
 
 
 #endif // PASIEN_H_INCLUDED

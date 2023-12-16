@@ -59,6 +59,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
 
     do {
         menuAwal();
+        cout << "Pilihan : ";
         cin >> x;
         if ( x == 1) {
             cout << "Opsi 1" << endl;

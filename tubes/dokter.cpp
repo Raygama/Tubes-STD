@@ -132,3 +132,16 @@ void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p) {
         prev(p) = NULL;
     }
 }
+
+int countDokter(List_dokter L){
+    address_dokter p;
+    int i = 0;
+
+    p = first(L);
+    while (p != NULL) {
+        i++;
+        p = next(p);
+    }
+
+    return i;
+}

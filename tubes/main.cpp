@@ -28,7 +28,7 @@ int main()
 
     start(LD, LP, LR);
 
-    /*
+
     isiDokter(LD);
 
     isiPasien(LP);
@@ -78,5 +78,5 @@ int main()
     cout << endl;
 
     cariDokter(LD, LP, LR);
-    */
+
 }
