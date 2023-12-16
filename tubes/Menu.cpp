@@ -3,9 +3,7 @@
 #include "relasi.h"
 #include "Menu.h"
 
-void pembuka(){
-    int x;
-
+void pembuka() {
     cout << "=============================================" << endl;
     cout << "||              SELAMAT DATANG             ||" << endl;
     cout << "||       DI APLIKASI DOKTER DAN PASIEN     ||" << endl;
@@ -16,20 +14,28 @@ void pembuka(){
     cout << "||                 1. START                ||" << endl;
     cout << "||                 2. OUT                  ||" << endl;
     cout << "=============================================" << endl;
+}
 
-    cout << endl;
-    cout << "Pilihan : ";
-    cin >> x;
+void penutup() {
+    cout << "=============================================" << endl;
+    cout << "||             TERIMA KASIH                ||" << endl;
+    cout << "||    TELAH MENGGUNAKAN APLIKASI INI       ||" << endl;
+    cout << "=============================================" << endl;
+}
 
-    if (x == 1) {
-        menuAwal();
-    } else {
-        cout << "=============================================" << endl;
-        cout << "||             TERIMA KASIH                ||" << endl;
-        cout << "||    TELAH MENGGUNAKAN APLIKASI INI       ||" << endl;
-        cout << "=============================================" << endl;
-    }
-};
+void start(List_dokter &LD, List_pasien &LP, List_relasi &LR) {
+    int x;
+
+    do {
+        pembuka();
+        cout << "Opsi: ";
+        cin >> x;
+        if (x == 1) {
+            pilihMenu(LD, LP, LR);
+        }
+    } while ( x != 2);
+    penutup();
+}
 
 void menuAwal(){
     cout << "=============================================" << endl;

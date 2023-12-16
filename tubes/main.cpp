@@ -26,7 +26,7 @@ int main()
     createList(LP);
     createList(LR);
 
-    pilihMenu(LD, LP, LR);
+    start(LD, LP, LR);
 
     /*
     isiDokter(LD);
