@@ -52,7 +52,7 @@ void menuAwal(){
 }
 
 void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
-    int x, xData, xTambah, opsi;
+    int x, opsi;
     infotype_dokter xKodeD;
     infotype_dokter xD;
     infotype_pasien xP;
@@ -67,7 +67,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }
@@ -77,7 +77,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }
@@ -87,7 +87,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }
@@ -97,7 +97,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }
@@ -107,7 +107,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }
@@ -117,7 +117,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                data(x);
             } else {
                 continue;
             }
@@ -127,7 +127,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             cout << "2. Back" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                // WIP
+                //data(x);
             } else {
                 continue;
             }

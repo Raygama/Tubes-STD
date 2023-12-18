@@ -41,5 +41,7 @@ void dealokasi(address_dokter &P);
 address_dokter findElm(List_dokter L, string kode);
 void printInfo(List_dokter L);
 int countDokter(List_dokter L);
+void menuDokter(int &x);
+void data(int &x);
 
 #endif // DOKTER_H_INCLUDED

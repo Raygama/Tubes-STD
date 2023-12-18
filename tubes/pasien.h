@@ -42,6 +42,7 @@ void dealokasi(address_pasien &P);
 address_pasien findElm(List_pasien L, int id);
 void printInfo(List_pasien L);
 int countPasien(List_pasien L);
+void menuPasien(int x);
 
 
 #endif // PASIEN_H_INCLUDED

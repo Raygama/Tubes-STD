@@ -1,4 +1,5 @@
 #include "dokter.h"
+#include "pasien.h"
 
 void createList(List_dokter &L) {
     /**
@@ -66,6 +67,9 @@ void isiDokter(List_dokter &L) {
         D = alokasi(xD);
         insertLast(L, D);
     }
+
+    cout << endl;
+    cout << "Data Telah Berhasil di Tambahkan" << endl;
 }
 
 
@@ -144,4 +148,43 @@ int countDokter(List_dokter L){
     }
 
     return i;
+}
+void data(int &x){
+    int y;
+
+    cout << "Data" << endl;
+    cout << "1. Dokter" << endl;
+    cout << "2. Pasien" << endl;
+    cout << "Pilihan :";
+    cin >> y;
+    if (y == 1) {
+        menuDokter(x);
+    } else if (y == 2) {
+        menuPasien(x);
+    } else {
+        cout << "Pilihan Tidak ada" << endl;
+    }
+}
+
+void menuDokter(int &x){
+    List_dokter LD;
+    address_dokter prec, p;
+    string kode;
+    if (x == 1) {
+        isiDokter(LD);
+    } else if (x == 2) {
+        //deleteElm(L, prec, p);
+    } else if (x == 3) {
+        //kunjungan
+    } else if (x == 4) {
+        //findElm(L, kode);
+    } else if (x == 5) {
+        //jadwal
+    } else if (x == 6) {
+        countDokter(LD);
+    } else if (x == 7) {
+        printInfo(LD);
+    } else {
+        //start();
+    }
 }

@@ -115,3 +115,26 @@ int countPasien(List_pasien L) {
 
     return i;
 }
+
+void menuPasien(int x){
+    List_pasien L;
+    address_pasien prec, p;
+    string kode;
+    if (x == 1) {
+        isiPasien(L);
+    } else if (x == 2) {
+        //deleteElm(L, prec, p);
+    } else if (x == 3) {
+        //kunjungan
+    } else if (x == 4) {
+        //findElm(L,kode);
+    } else if (x == 5) {
+        //jadwal
+    } else if (x == 6) {
+        countPasien(L);
+    } else if (x == 7) {
+        printInfo(L);
+    } else {
+        //start();
+    }
+}

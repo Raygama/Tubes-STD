@@ -42,4 +42,5 @@ address_relasi alokasi( address_dokter P, address_pasien C);
 void dealokasi(address_relasi &P);
 address_relasi findElm(List_relasi L, address_dokter P, address_pasien C);
 void printInfo(List_relasi L);
+
 #endif // RELASI_H_INCLUDED
