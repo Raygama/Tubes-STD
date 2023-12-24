@@ -29,14 +29,14 @@
 	"relasi.h"
 	"Menu.h"
 
-1702736335 source:c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.cpp
+1703401453 source:c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.cpp
 	"dokter.h"
 	"pasien.h"
 
 1702736072 c:\users\melin\documents\tubes std\tubes-std\tubes\dokter.h
 	<iostream>
 
-1702736368 source:c:\users\melin\documents\tubes std\tubes-std\tubes\main.cpp
+1702737654 source:c:\users\melin\documents\tubes std\tubes-std\tubes\main.cpp
 	<iostream>
 	"dokter.h"
 	"pasien.h"
@@ -98,7 +98,7 @@
 1702703158 c:\users\lenovo\documents\tel-u\semester 3\strukdat\tubes-std\tubes\menu.h
 	<iostream>
 
-1702737642 source:c:\users\melin\documents\tubes std\tubes-std\tubes\menu.cpp
+1703401528 source:c:\users\melin\documents\tubes std\tubes-std\tubes\menu.cpp
 	"dokter.h"
 	"pasien.h"
 	"relasi.h"

@@ -70,6 +70,7 @@ void isiDokter(List_dokter &L) {
 
     cout << endl;
     cout << "Data Telah Berhasil di Tambahkan" << endl;
+    cout << endl;
 }
 
 
@@ -149,7 +150,7 @@ int countDokter(List_dokter L){
 
     return i;
 }
-void data(int &x){
+/* void data(int &x){
     int y;
 
     cout << "Data" << endl;
@@ -187,4 +188,4 @@ void menuDokter(int &x){
     } else {
         //start();
     }
-}
+} */
