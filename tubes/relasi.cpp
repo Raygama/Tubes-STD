@@ -210,7 +210,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
 
     availability = cekAvailabilityDokter(LR, D, jam, durasi);
     while (!availability) {
-        cout << "Terdapat konflik dengan kunjungan lain pada jam dan durasi tersebut, mohon input lagi" << endl;
+        cout << "Dokter tidak tersedia pada jam dan durasi tersebut, mohon input lagi" << endl;
         cout << "Kunjungan untuk jam " << now->tm_hour << " ganti? (y/n)" << endl;
         cin >> opsi;
         if (opsi == "y") {

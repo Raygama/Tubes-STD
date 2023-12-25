@@ -34,6 +34,8 @@ void tambahPasien(List_pasien &L) {
                 cin >> xP.nama >> xP.umur;
                 Q = findElm(L, xP.nama);
             }
+            P = alokasi(xP);
+            insertLast(L, P);
         }
     }
 }
@@ -63,11 +65,24 @@ void insertLast(List_pasien &L, address_pasien P) {
 }
 
 void printInfo(List_pasien L) {
+    /**
+    * FS : menampilkan info seluruh elemen list L
+    */
+    string input;
     address_pasien P = first(L);
-    while(P !=NULL) {
-        cout<<"->" << info(P).id << " " << info(P).nama << " " << info(P).umur <<endl;
-        P = next(P);
+    printf("---------------------------------\n");
+    printf("| ID\t| NAMA\t\t| UMUR\t|\n");
+    printf("---------------------------------\n");
+    if(first(L)!=NULL) {
+        do {
+            cout << "| " << info(P).id << "\t| " << info(P).nama << "\t\t| " << info(P).umur << "\t| " << endl;
+            P = next(P);
+        } while((P)!=NULL);
     }
+    printf("---------------------------------\n");
+    cout << endl;
+    cout << "Tekan apapun untuk kembali" << endl;
+    cin >> input;
 }
 
 
@@ -123,6 +138,31 @@ int countPasien(List_pasien L) {
     }
 
     return i;
+}
+
+void cariDataPasien(List_pasien L) {
+    string nama, opsi;
+    address_pasien P;
+    cout << "Masukan nama pasien: ";
+    cin >> nama;
+
+    P = findElm(L, nama);
+    if (P == NULL) {
+        cout << "Nama pasien tidak ditemukan" << endl;
+        cout << "Cari lagi? (y/n) ";
+        cin >> opsi;
+        if (opsi == "y") {
+            cariDataPasien(L);
+        }
+    } else {
+        printf("---------------------------------\n");
+        printf("| ID\t| NAMA\t\t| UMUR\t|\n");
+        printf("---------------------------------\n");
+        cout << "| " << info(P).id << "\t| " << info(P).nama << "\t\t| " << info(P).umur << "\t| " << endl;
+        printf("---------------------------------\n");
+        cout << "Tekan apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
 }
 
 void menuPasien(int x){

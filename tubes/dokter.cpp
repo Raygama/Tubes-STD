@@ -54,13 +54,12 @@ void insertLast(List_dokter &L, address_dokter P) {
 }
 
 void isiDokter(List_dokter &L) {
-    int n, i;
     infotype_dokter xD;
     address_dokter D;
 
     xD.kode = "RAY";
-    xD.nama = "Raygama";
-    xD.spesialis = "Jantung";
+    xD.nama = "Daffa";
+    xD.spesialis = "Dalam";
     xD.jam_awal = 8;
     xD.jam_akhir = 12;
     D = alokasi(xD);
@@ -83,13 +82,13 @@ void isiDokter(List_dokter &L) {
     insertLast(L, D);
 
     xD.kode = "HTS";
-    xD.nama = "Harits";
-    xD.spesialis = "Ginjal";
+    xD.nama = "Haris";
+    xD.spesialis = "Paru";
     D = alokasi(xD);
     insertLast(L, D);
 
     xD.kode = "ADK";
-    xD.nama = "Andhika";
+    xD.nama = "Dika";
     xD.spesialis = "Anak";
     xD.jam_awal = 14;
     xD.jam_akhir = 18;
@@ -102,25 +101,64 @@ void printInfo(List_dokter L) {
     /**
     * FS : menampilkan info seluruh elemen list L
     */
+    string input;
     address_dokter P = first(L);
+    printf("---------------------------------------------------------\n");
+    printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+    printf("---------------------------------------------------------\n");
     if(first(L)!=NULL) {
         do {
-            cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << endl;
+            cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
             P = next(P);
         } while((P)!=NULL);
+    }
+    printf("---------------------------------------------------------\n");
+    cout << endl;
+    cout << "Tekan apapun untuk kembali" << endl;
+    cin >> input;
+}
+
+void cariDataDokter(List_dokter L) {
+    string kode, opsi;
+    address_dokter P;
+    cout << "Masukan kode dokter: ";
+    cin >> kode;
+
+    P = findElm(L, kode);
+    if (P == NULL) {
+        cout << "Kode dokter tidak ditemukan" << endl;
+        cout << "Cari lagi? (y/n) ";
+        cin >> opsi;
+        if (opsi == "y") {
+            cariDataDokter(L);
+        }
+    } else {
+        printf("---------------------------------------------------------\n");
+        printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+        printf("---------------------------------------------------------\n");
+        cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
+        printf("---------------------------------------------------------\n");
+        cout << "Tekan apapun untuk kembali" << endl;
+        cin >> opsi;
     }
 }
 
 void showSpecialist(List_dokter L, string spesialis) {
     address_dokter P = first(L);
+    string input;
+    printf("---------------------------------------------------------\n");
+    printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+    printf("---------------------------------------------------------\n");
     if(first(L)!=NULL) {
         do {
-            if (info(P).spesialis == spesialis) {
-                cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << endl;
-            }
+            cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
             P = next(P);
         } while((P)!=NULL);
     }
+    printf("---------------------------------------------------------\n");
+    cout << endl;
+    cout << "Tekan apapun untuk kembali" << endl;
+    cin >> input;
 }
 
 void tambahDokter(List_dokter &L) {

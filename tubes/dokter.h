@@ -36,6 +36,7 @@ void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p);
 void showSpecialist(List_dokter L, string spesialis);
 void isiDokter(List_dokter &L);
 void tambahDokter(List_dokter &L);
+void cariDataDokter(List_dokter L);
 
 address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);

@@ -92,25 +92,9 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 cin >> opsi;
             } while (opsi != 2);
         } else if (x == 4) {
-            cout << "Opsi 4" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            cariDataDokter(LD);
         } else if (x == 5) {
-            cout << "Opsi 5" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            cariDataPasien(LP);
         } else if (x == 6) {
             cout << "Opsi 6" << endl;
             cout << "1. [WIP]" << endl;
@@ -150,25 +134,9 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 continue;
             }
         } else if (x == 10) {
-            cout << "Opsi 2" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            printInfo(LD);
         } else if (x == 11) {
-            cout << "Opsi 2" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            printInfo(LP);
         } else {
             break;
         }
