@@ -15,8 +15,18 @@ address_relasi alokasi(address_dokter D, address_pasien P) {
     return Q;
 }
 
-bool cekAvailabilityDokter(address_dokter D) {
-    return !info(D).status;
+bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi) {
+    address_relasi R = first(LR);
+    if (jam < info(D).jam_awal || jam > info(D).jam_akhir) {
+        return false;
+    }
+    while (R != NULL) {
+        if ((jam < info(R).jamAwal || jam > info(R).jamAkhir) || (jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir)) {
+            return false;
+        }
+        R = next(R);
+    }
+    return true;
 }
 
 void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR) {
@@ -26,7 +36,7 @@ void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR) {
     cin >> kode;
     D = findElm(LD, kode);
     cout << "Data Dokter: " << endl;
-    cout << info(D).kode << " " << info(D).nama << " " << info(D).spesialis << " " << info(D).status << endl;
+    cout << info(D).kode << " " << info(D).nama << " " << info(D).spesialis << endl;
 
     cout << endl;
     cout << "Data Pasien: " << endl;
@@ -107,4 +117,116 @@ void deleteElm(List_relasi &L, address_relasi prec, address_relasi &p) {
         next(p) = NULL;
         prev(p) = NULL;
     }
+}
+
+void deleteDokter(List_dokter &LD, List_relasi &LR) {
+    string kode = "", opsi = "";
+    address_dokter D, temp;
+    address_relasi R;
+    int n = 0;
+
+    cout << "Masukan kode dokter yang ingin dihapus: ";
+    cin >> kode;
+    D = findElm(LD, kode);
+    if (D != NULL) {
+        R = first(LR);
+        while (R != NULL) {
+            if (dokter(R) == D) {
+                if (n == 0) {
+                    cout << "Peringatan! Kunjungan dengan pasien berikut akan dibatalkan!" << endl;
+                    cout << info(pasien(R)).nama << endl;
+                    n++;
+                } else {
+                    cout << info(pasien(R)).nama << endl;
+                    n++;
+                }
+            }
+            R = next(R);
+        }
+        if (n == 0) {
+            deleteElm(LD, D, temp);
+            cout << "Delete dokter selesai" << endl;
+        } else {
+            cout << "Kunjungan dokter dengan " << n << " pasien akan terbatalkan" << endl;
+            cout << "Lanjut? (y/n) ";
+            cin >> opsi;
+            if (opsi == "y") {
+                deleteElm(LD, D, temp);
+            }
+        }
+    } else {
+        cout << "Data dokter tidak ditemukan" << endl;
+        cout << "Ingin cari lagi (y/n) ";
+        cin >> opsi;
+        if (opsi == "y") {
+            deleteDokter(LD, LR);
+        }
+    }
+}
+
+void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
+    infotype_pasien xP;
+    string kode;
+    address_pasien p;
+    address_dokter D;
+    string opsi;
+    bool availability;
+
+    cout << "Masukan nama pasien: " << endl;
+    cin >> xP.nama;
+    p = findElm(LP, xP.nama);
+    if (p == NULL) {
+        cout << "Pasien belum terdaftar, silahkan daftar" << endl;
+        cout << "Masukan umur: ";
+        cin >> xP.umur;
+        p = alokasi(xP);
+        insertLast(LP, p);
+        cout << "Pendaftaran berhasil" << endl;
+    }
+
+    cout << "Masukan kode dokter yang ingin dikunjungi: ";
+    cin >> kode;
+    D = findElm(LD, kode);
+    while (D == NULL) {
+        cout << "Tidak ada dokter dengan kode tersebut" << endl;
+        cout << "Masukan kode dokter yang ingin dikunjungi: ";
+        cin >> kode;
+        D = findElm(LD, kode);
+    }
+
+    int jam;
+    int durasi;
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    cout << "Kunjungan untuk jam " << now->tm_hour << " ganti? (y/n)" << endl;
+    cin >> opsi;
+    if (opsi == "y") {
+        cout << "Masukan jam kunjungan: ";
+        cin >> jam;
+    }
+
+    cout << "Masukan durasi jam kunjungan: ";
+    cin >> durasi;
+
+    availability = cekAvailabilityDokter(LR, D, jam, durasi);
+    while (!availability) {
+        cout << "Terdapat konflik dengan kunjungan lain pada jam dan durasi tersebut, mohon input lagi" << endl;
+        cout << "Kunjungan untuk jam " << now->tm_hour << " ganti? (y/n)" << endl;
+        cin >> opsi;
+        if (opsi == "y") {
+            cout << "Masukan jam kunjungan: ";
+            cin >> jam;
+        }
+
+        cout << "Masukan durasi jam kunjungan: ";
+        cin >> durasi;
+
+        availability = cekAvailabilityDokter(LR, D, jam, durasi);
+    }
+
+    address_relasi R = alokasi(D, p);
+    info(R).jamAwal = jam;
+    info(R).jamAkhir = jam + durasi;
+
+    insertLast(LR, R);
 }

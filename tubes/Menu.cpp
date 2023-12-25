@@ -67,36 +67,30 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
         cin >> x;
         if ( x == 1) {
             //menambah dokter
-            cout << "Opsi 1" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                isiDokter(LD);
-            } else {
-                continue;
-            }
+            do {
+                tambahDokter(LD);
+                cout << "Ingin tambah dokter lagi?" << endl;
+                cout << "1. iya" << endl;
+                cout << "2. tidak" << endl;
+                cin >> opsi;
+            } while (opsi != 2);
         } else if (x == 2) {
             //menambah pasien
-            cout << "Opsi 2" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                isiPasien(LP);
-            } else {
-                continue;
-            }
+            do {
+                tambahPasien(LP);
+                printf("Ingin tambah lagi? \n");
+                cout << "1. iya" << endl;
+                cout << "2. tidak" << endl;
+                cin >> opsi;
+            } while (opsi != 2);
         } else if (x == 3) {
-            cout << "Opsi 3" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            do {
+                deleteDokter(LD, LR);
+                cout << "Ingin delete dokter lagi?" << endl;
+                cout << "1. iya" << endl;
+                cout << "2. tidak" << endl;
+                cin >> opsi;
+            } while (opsi != 2);
         } else if (x == 4) {
             cout << "Opsi 4" << endl;
             cout << "1. [WIP]" << endl;
@@ -128,15 +122,13 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 continue;
             }
         } else if (x == 7) {
-            cout << "Opsi 7" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            do {
+                jadwalKunjungan(LR, LP, LD);
+                cout << "Ingin menjadwalkan lagi? " << endl;
+                cout << "1. iya" << endl;
+                cout << "2. tidak" << endl;
+                cin >> opsi;
+            } while (opsi != 2);
         } else if (x == 8) {
             cout << "Opsi 2" << endl;
             cout << "1. [WIP]" << endl;

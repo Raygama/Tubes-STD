@@ -13,7 +13,6 @@ address_dokter alokasi(infotype_dokter x) {
     /**
     * FS : mengembalikan elemen list baru dengan info = x, next elemen = Nil
     */
-    x.status = false;
     address_dokter P;
     P = new elmlist_dokter;
     info(P) = x;
@@ -58,19 +57,44 @@ void isiDokter(List_dokter &L) {
     int n, i;
     infotype_dokter xD;
     address_dokter D;
-    cout << "Jumlah data dokter yang ditambahkan: ";
-    cin >> n;
 
-    cout << "Masukan data dokter: Kode, Nama, Spesialis" << endl;
-    for (i = 1; i <= n; i++) {
-        cin >> xD.kode >> xD.nama >> xD.spesialis;
-        D = alokasi(xD);
-        insertLast(L, D);
-    }
+    xD.kode = "RAY";
+    xD.nama = "Raygama";
+    xD.spesialis = "Jantung";
+    xD.jam_awal = 8;
+    xD.jam_akhir = 12;
+    D = alokasi(xD);
+    insertLast(L, D);
 
-    cout << endl;
-    cout << "Data Telah Berhasil di Tambahkan" << endl;
-    cout << endl;
+    xD.kode = "MLN";
+    xD.nama = "Melin";
+    xD.spesialis = "Kulit";
+    xD.jam_awal = 10;
+    xD.jam_akhir = 14;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "ABY";
+    xD.nama = "Abiyu";
+    xD.spesialis = "Jiwa";
+    xD.jam_awal = 12;
+    xD.jam_akhir = 16;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "HTS";
+    xD.nama = "Harits";
+    xD.spesialis = "Ginjal";
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "ADK";
+    xD.nama = "Andhika";
+    xD.spesialis = "Anak";
+    xD.jam_awal = 14;
+    xD.jam_akhir = 18;
+    D = alokasi(xD);
+    insertLast(L, D);
 }
 
 
@@ -81,7 +105,7 @@ void printInfo(List_dokter L) {
     address_dokter P = first(L);
     if(first(L)!=NULL) {
         do {
-            cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << " " << info(P).status << endl;
+            cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << endl;
             P = next(P);
         } while((P)!=NULL);
     }
@@ -92,11 +116,38 @@ void showSpecialist(List_dokter L, string spesialis) {
     if(first(L)!=NULL) {
         do {
             if (info(P).spesialis == spesialis) {
-                cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << " " << info(P).status << endl;
+                cout << info(P).kode << " " << info(P).nama << " " << info(P).spesialis << endl;
             }
             P = next(P);
         } while((P)!=NULL);
     }
+}
+
+void tambahDokter(List_dokter &L) {
+    infotype_dokter x;
+    address_dokter Q;
+    cout << "Mohon masukan kode dokter: ";
+    cin >> x.kode;
+    cout << "Mohon masukan nama dokter: ";
+    cin >> x.nama;
+    cout << "Mohon masukan spesialisasi dokter: ";
+    cin >> x.spesialis;
+    cout << "Mohon masukan jam awal operasi dokter: ";
+    cin >> x.jam_awal;
+    cout << "Mohon masukan jam akhir operasi dokter: ";
+    cin >> x.jam_akhir;
+
+    Q = findElm(L, x.kode);
+    while (Q != NULL) {
+        cout << "Terdapat dokter dengan kode yang sama, mohon input kode lagi" << endl;
+        cin >> x.kode;
+        Q = findElm(L, x.kode);
+    }
+    address_dokter p = alokasi(x);
+    insertLast(L, p);
+
+    cout << "Data berhasil ditambahkan" << endl;
+
 }
 
 address_dokter findElm(List_dokter L, string kode) {

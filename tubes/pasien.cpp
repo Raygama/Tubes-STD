@@ -15,17 +15,26 @@ address_pasien alokasi(infotype_pasien x) {
     return P;
 }
 
-void isiPasien(List_pasien &L) {
+void tambahPasien(List_pasien &L) {
     int n, i;
     infotype_pasien xP;
-    address_pasien P;
+    address_pasien P, Q;
     cout << "Jumlah data pasien yang ditambahkan: ";
     cin >> n;
-    cout << "Masukan data pasien: Nama, Umur" << endl;
+    cout << "Masukan data pasien: Nama dan Umur" << endl;
     for (i = 1; i <= n; i++) {
         cin >> xP.nama >> xP.umur;
-        P = alokasi(xP);
-        insertLast(L, P);
+        Q = findElm(L, xP.nama);
+        if (Q == NULL) {
+            P = alokasi(xP);
+            insertLast(L, P);
+        } else {
+            while (Q != NULL) {
+                cout << "Terdapat pasien dengan nama yang sama persis, mohon input ulang nama dan umur" << endl;
+                cin >> xP.nama >> xP.umur;
+                Q = findElm(L, xP.nama);
+            }
+        }
     }
 }
 
@@ -62,10 +71,10 @@ void printInfo(List_pasien L) {
 }
 
 
-address_pasien findElm(List_pasien L, int id) {
+address_pasien findElm(List_pasien L, string nama) {
     address_pasien P = first(L);
     while(P != NULL) {
-        if(info(P).id == id) {
+        if(info(P).nama == nama) {
             return P;
         }
         P = next(P);
@@ -121,7 +130,7 @@ void menuPasien(int x){
     address_pasien prec, p;
     string kode;
     if (x == 1) {
-        isiPasien(L);
+        tambahPasien(L);
     } else if (x == 2) {
         //deleteElm(L, prec, p);
     } else if (x == 3) {

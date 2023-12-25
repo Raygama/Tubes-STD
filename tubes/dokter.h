@@ -13,7 +13,7 @@ using namespace std;
 // DLL
 struct infotype_dokter {
     string kode, nama, spesialis;
-    bool status;
+    int jam_awal, jam_akhir;
 };
 
 typedef struct elmlist_dokter *address_dokter;
@@ -35,6 +35,7 @@ void insertLast(List_dokter &L, address_dokter P);
 void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p);
 void showSpecialist(List_dokter L, string spesialis);
 void isiDokter(List_dokter &L);
+void tambahDokter(List_dokter &L);
 
 address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);
