@@ -37,10 +37,16 @@ void showSpecialist(List_dokter L, string spesialis);
 void isiDokter(List_dokter &L);
 void tambahDokter(List_dokter &L);
 void cariDataDokter(List_dokter L);
+void cariKodeDokter(List_dokter L);
+void cariJamDokter(List_dokter L);
+void cariSpesialisDokter(List_dokter L);
+void cariDataDokter(List_dokter L);
 
 address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);
 address_dokter findElm(List_dokter L, string kode);
+address_dokter findElmS(List_dokter L, string SP);
+address_dokter findElmJ(List_dokter L, int awal, int akhir);
 void printInfo(List_dokter L);
 int countDokter(List_dokter L);
 void menuDokter(int &x);

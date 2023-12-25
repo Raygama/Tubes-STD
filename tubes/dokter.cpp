@@ -119,6 +119,84 @@ void printInfo(List_dokter L) {
 }
 
 void cariDataDokter(List_dokter L) {
+    int x;
+
+    cout << "Mencari data apa? " << endl;
+    cout << "1. Kode" << endl;
+    cout << "2. Spesialis" << endl;
+    cout << "3. Jam kerja" << endl;
+    //cout << "4. Jam temu" << endl;
+
+    cout << endl;
+    cout << "Pilihan : ";
+    cin >> x;
+
+    if (x == 1) {
+        cariKodeDokter(L);
+    } else if (x == 2) {
+        cariSpesialisDokter(L);
+    } else if (x == 3) {
+        cariJamDokter(L);
+    } else {
+        //jam temu
+    }
+}
+
+void cariSpesialisDokter(List_dokter L) {
+    string opsi, cariSP;
+    address_dokter P;
+
+    cout << "Masukan Spesialis dokter: ";
+    cin >> cariSP;
+
+    P = findElmS(L, cariSP);
+    if (P == NULL) {
+        cout << "Spesialis Dokter tidak ditemukan" << endl;
+        cout << "Cari lagi? (y/n) ";
+        cin >> opsi;
+        if (opsi == "y") {
+            cariDataDokter(L);
+        }
+    } else {
+        printf("---------------------------------------------------------\n");
+        printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+        printf("---------------------------------------------------------\n");
+        cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
+        printf("---------------------------------------------------------\n");
+        cout << "Tekan apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
+}
+
+void cariJamDokter(List_dokter L) {
+    string opsi;
+    int awal, akhir;
+    address_dokter P;
+
+    cout << "Masukan Jam Kerja dokter: " << endl;
+    cout << "Jam awal" << " | " << "Jam akhir" << endl;
+    cin >> awal >> akhir;
+
+    P = findElmJ(L, awal, akhir);
+    if (P == NULL) {
+        cout << "Jam kerja Dokter tidak ditemukan" << endl;
+        cout << "Cari lagi? (y/n) ";
+        cin >> opsi;
+        if (opsi == "y") {
+            cariDataDokter(L);
+        }
+    } else {
+        printf("---------------------------------------------------------\n");
+        printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+        printf("---------------------------------------------------------\n");
+        cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
+        printf("---------------------------------------------------------\n");
+        cout << "Tekan apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
+}
+
+void cariKodeDokter(List_dokter L) {
     string kode, opsi;
     address_dokter P;
     cout << "Masukan kode dokter: ";
@@ -204,6 +282,41 @@ address_dokter findElm(List_dokter L, string kode) {
     } while(P != first(L));
     return NULL;
 }
+
+address_dokter findElmS(List_dokter L, string SP) {
+    /**
+    * IS : List_dokter L mungkin kosong
+    * FS : mengembalikan elemen dengan info nim = x.nim,
+    * FS : mengembalikan elemen dengan info = x,
+           mengembalikan Nil jika tidak ditemukan
+    */
+    address_dokter P = first(L);
+    do {
+        if(info(P).spesialis== SP) {
+            return P;
+        }
+        P = next(P);
+    } while(P != first(L));
+    return NULL;
+}
+
+address_dokter findElmJ(List_dokter L, int awal, int akhir) {
+    /**
+    * IS : List_dokter L mungkin kosong
+    * FS : mengembalikan elemen dengan info nim = x.nim,
+    * FS : mengembalikan elemen dengan info = x,
+           mengembalikan Nil jika tidak ditemukan
+    */
+    address_dokter P = first(L);
+    do {
+        if(info(P).jam_awal >= awal || info(P).jam_akhir <= akhir) {
+            return P;
+        }
+        P = next(P);
+    } while(P != first(L));
+    return NULL;
+}
+
 
 void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p) {
     if (prec == first(L)) {
