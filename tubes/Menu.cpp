@@ -40,8 +40,8 @@ void start(List_dokter &LD, List_pasien &LP, List_relasi &LR) {
 void menuAwal(){
     cout << "=============================================" << endl;
     cout << "||                PILIH MENU               ||" << endl;
-    cout << "|| 1. Menambah data Dokter                 ||" << endl;
-    cout << "|| 2. Menambah data Pasien                 ||" << endl;
+    cout << "|| 1. Mendaftarkan Dokter                  ||" << endl;
+    cout << "|| 2. Mendaftarkan Pasien                  ||" << endl;
     cout << "|| 3. Menghapus data Dokter                ||" << endl; //berserta relasinya atau tidak
     cout << "|| 4. Mencari data Dokter                  ||" << endl;
     cout << "|| 5. Mencari data Pasien                  ||" << endl;
@@ -51,7 +51,8 @@ void menuAwal(){
     cout << "|| 9. Menghitung jumlah data Pasien        ||" << endl;
     cout << "|| 10. Menampilkan data Dokter             ||" << endl;
     cout << "|| 11. Menampilkan data Pasien             ||" << endl;
-    cout << "|| 12. Quit                                ||" << endl;
+    cout << "|| 12. Menampilkan data Kunjungan          ||" << endl;
+    cout << "|| 13. Quit                                ||" << endl;
     cout << "=============================================" << endl;
 }
 
@@ -137,8 +138,21 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             printInfo(LD);
         } else if (x == 11) {
             printInfo(LP);
+        } else if (x == 12) {
+            cout << "Ingin melihat kunjungan siapa? " << endl;
+            cout << "1. Pasien" << endl;
+            cout << "2. Dokter" << endl;
+            cout << "3. Semua" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                showKunjunganPasien(LR, LP);
+            } else if (opsi == 2) {
+                showKunjunganDokter(LR, LD);
+            } else {
+                showAllKunjungan(LR);
+            }
         } else {
             break;
         }
-    } while (x != 12);
+    } while (x != 13);
 }

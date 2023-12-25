@@ -143,6 +143,7 @@ int countPasien(List_pasien L) {
 void cariDataPasien(List_pasien L) {
     string nama, opsi;
     address_pasien P;
+    bool found;
     cout << "Masukan nama pasien: ";
     cin >> nama;
 

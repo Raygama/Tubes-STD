@@ -84,6 +84,8 @@ void isiDokter(List_dokter &L) {
     xD.kode = "HTS";
     xD.nama = "Haris";
     xD.spesialis = "Paru";
+    xD.jam_awal = 18;
+    xD.jam_akhir = 22;
     D = alokasi(xD);
     insertLast(L, D);
 

@@ -21,8 +21,10 @@ bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi
         return false;
     }
     while (R != NULL) {
-        if ((jam < info(R).jamAwal || jam > info(R).jamAkhir) || (jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir)) {
-            return false;
+        if (dokter(R) == D) {
+            if ((jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir) || (jam < info(R).jamAwal && jam+durasi > info(R).jamAkhir)) {
+                return false;
+            }
         }
         R = next(R);
     }
@@ -72,12 +74,17 @@ void insertLast(List_relasi &L, address_relasi P) {
     }
 }
 
-void printInfo(List_relasi L) {
+void showAllKunjungan(List_relasi L) {
     address_relasi P = first(L);
+    string input;
+    printf("-------------------------------------------------\n");
+    printf("| DOKTER\t| PASIEN\t| JAM KUNJUNGAN\t|\n");
+    printf("-------------------------------------------------\n");
     while(P !=NULL) {
-        cout<<info(dokter(P)).nama<<"->"<<info(pasien(P)).nama<<endl;
+        cout << "| " << info(dokter(P)).nama << "\t\t| " << info(pasien(P)).nama << "\t\t| " << info(P).jamAwal << " sd " << info(P).jamAkhir << "\t| " << endl;
         P = next(P);
     }
+    printf("-------------------------------------------------\n");
 }
 
 
@@ -229,4 +236,88 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
     info(R).jamAkhir = jam + durasi;
 
     insertLast(LR, R);
+}
+
+void showKunjunganPasien(List_relasi LR, List_pasien LP) {
+    string nama;
+    bool found = false;
+    address_pasien P;
+    address_relasi R = first(LR);
+
+    cout << "Masukan nama pasien: ";
+    cin >> nama;
+    P = findElm(LP, nama);
+
+    if (P == NULL) {
+        cout << "Nama pasien tidak ada" << endl;
+    } else {
+        while ( R != NULL && !found) {
+            if (pasien(R) == P) {
+                found = true;
+            }
+        }
+        if (!found) {
+            cout << "Tidak ada kunjungan untuk pasien ini" << endl;
+        } else {
+            printf("=================LIST KUNJUNGAN PASIEN===================\n");
+            printf("---------------------------------------------------------\n");
+            printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
+            printf("---------------------------------------------------------\n");
+            R = first(LR);
+            while ( R != NULL) {
+                if (pasien(R) == P) {
+                    cout << "| " << info(dokter(R)).kode << "\t| " <<  info(dokter(R)).nama << "\t\t| " <<  info(dokter(R)).spesialis << "\t\t|  " <<  info(dokter(R)).jam_awal << " s/d " <<  info(dokter(R)).jam_akhir << "\t| " << endl;
+                }
+                R = next(R);
+            }
+            printf("---------------------------------------------------------\n");
+        }
+    }
+}
+
+void showKunjunganDokter(List_relasi LR, List_dokter LD) {
+    string kode;
+    bool found = false;
+    address_dokter D;
+    address_relasi R = first(LR);
+
+    cout << "Masukan kode dokter: ";
+    cin >> kode;
+    D = findElm(LD, kode);
+
+    if (D == NULL) {
+        cout << "Kode dokter tidak ada" << endl;
+    } else {
+        while (R != NULL && !found) {
+            if (dokter(R) == D) {
+                found = true;
+            }
+        }
+        if (!found) {
+            cout << "Tidak ada kunjungan untuk dokter ini" << endl;
+        } else {
+            printf("======LIST KUNJUNGAN DOKTER======\n");
+            printf("---------------------------------\n");
+            printf("| ID\t| NAMA\t\t| UMUR\t|\n");
+            printf("---------------------------------\n");
+            R = first(LR);
+            while ( R != NULL) {
+                if (dokter(R) == D) {
+                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << endl;
+                }
+                R = next(R);
+            }
+            printf("---------------------------------\n");
+        }
+    }
+}
+
+void selesaiKunjungan(List_relasi LR, List_pasien &LP) {
+    string nama;
+    address_pasien P;
+
+    cout << "Masukan nama pasien yang kunjungannya sudah selesai: ";
+    cin >> nama;
+    //P = findElm(LP, P);
+
 }
