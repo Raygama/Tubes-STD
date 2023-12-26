@@ -27,6 +27,7 @@ int main()
     createList(LR);
 
     isiDokter(LD);
+    isiPasien(LP);
     start(LD, LP, LR);
 
 }

@@ -45,10 +45,15 @@ bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi
 void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR);
 void deleteDokter(List_dokter &LD, List_relasi &LR);
 void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD);
+void showKunjunganDokter(List_relasi LR, List_dokter LD);
+void showKunjunganPasien(List_relasi LR, List_pasien LP);
+void showKunjunganDokter(List_relasi LR, List_dokter LD);
+void showAllKunjungan(List_relasi L);
 
 address_relasi alokasi( address_dokter P, address_pasien C);
 void dealokasi(address_relasi &P);
 address_relasi findElm(List_relasi L, address_dokter P, address_pasien C);
 void printInfo(List_relasi L);
+
 
 #endif // RELASI_H_INCLUDED

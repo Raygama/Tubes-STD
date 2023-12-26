@@ -64,6 +64,35 @@ void insertLast(List_pasien &L, address_pasien P) {
     }
 }
 
+void isiPasien(List_pasien &L) {
+    infotype_pasien xP;
+    address_pasien P;
+
+    xP.id = 1;
+    xP.nama = "Melin";
+    xP.umur = 14;
+    P = alokasi(xP);
+    insertLast(L, P);
+
+    xP.id = 2;
+    xP.nama = "Ray";
+    xP.umur = 16;
+    P = alokasi(xP);
+    insertLast(L, P);
+
+    xP.id = 3;
+    xP.nama = "Abi";
+    xP.umur = 15;
+    P = alokasi(xP);
+    insertLast(L, P);
+
+    xP.id = 4;
+    xP.nama = "Zahwa";
+    xP.umur = 17;
+    P = alokasi(xP);
+    insertLast(L, P);
+}
+
 void printInfo(List_pasien L) {
     /**
     * FS : menampilkan info seluruh elemen list L
@@ -163,28 +192,5 @@ void cariDataPasien(List_pasien L) {
         printf("---------------------------------\n");
         cout << "Tekan apapun untuk kembali" << endl;
         cin >> opsi;
-    }
-}
-
-void menuPasien(int x){
-    List_pasien L;
-    address_pasien prec, p;
-    string kode;
-    if (x == 1) {
-        tambahPasien(L);
-    } else if (x == 2) {
-        //deleteElm(L, prec, p);
-    } else if (x == 3) {
-        //kunjungan
-    } else if (x == 4) {
-        //findElm(L,kode);
-    } else if (x == 5) {
-        //jadwal
-    } else if (x == 6) {
-        countPasien(L);
-    } else if (x == 7) {
-        printInfo(L);
-    } else {
-        //start();
     }
 }

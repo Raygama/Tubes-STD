@@ -59,7 +59,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "RAY";
     xD.nama = "Daffa";
-    xD.spesialis = "Dalam";
+    xD.spesialis = "Kulit";
     xD.jam_awal = 8;
     xD.jam_akhir = 12;
     D = alokasi(xD);
@@ -67,7 +67,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "MLN";
     xD.nama = "Melin";
-    xD.spesialis = "Kulit";
+    xD.spesialis = "Dalam";
     xD.jam_awal = 10;
     xD.jam_akhir = 14;
     D = alokasi(xD);
@@ -75,7 +75,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "ABY";
     xD.nama = "Abiyu";
-    xD.spesialis = "Jiwa";
+    xD.spesialis = "Dalam";
     xD.jam_awal = 12;
     xD.jam_akhir = 16;
     D = alokasi(xD);
@@ -146,13 +146,13 @@ void cariDataDokter(List_dokter L) {
 
 void cariSpesialisDokter(List_dokter L) {
     string opsi, cariSP;
-    address_dokter P;
+    address_dokter P, Q;
 
     cout << "Masukan Spesialis dokter: ";
     cin >> cariSP;
 
-    P = findElmS(L, cariSP);
-    if (P == NULL) {
+    Q = findElmS(L, cariSP);
+    if (Q == NULL) {
         cout << "Spesialis Dokter tidak ditemukan" << endl;
         cout << "Cari lagi? (y/n) ";
         cin >> opsi;
@@ -163,25 +163,33 @@ void cariSpesialisDokter(List_dokter L) {
         printf("---------------------------------------------------------\n");
         printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
         printf("---------------------------------------------------------\n");
-        cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
-        printf("---------------------------------------------------------\n");
+        P = first(L);
+
+        while (P != NULL) {
+            if (info(P).spesialis == cariSP){
+                cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
+                printf("---------------------------------------------------------\n");
+            }
+            P = next(P);
+        }
         cout << "Tekan apapun untuk kembali" << endl;
         cin >> opsi;
     }
+
 }
 
 void cariJamDokter(List_dokter L) {
     string opsi;
     int awal, akhir;
-    address_dokter P;
+    address_dokter P, Q;
 
     cout << "Masukan Jam Kerja dokter: " << endl;
     cout << "Jam awal" << " | " << "Jam akhir" << endl;
     cin >> awal >> akhir;
 
-    P = findElmJ(L, awal, akhir);
-    if (P == NULL) {
-        cout << "Jam kerja Dokter tidak ditemukan" << endl;
+    Q = findElmJ(L, awal, akhir);
+    if (Q == NULL) {
+        cout << "Spesialis Dokter tidak ditemukan" << endl;
         cout << "Cari lagi? (y/n) ";
         cin >> opsi;
         if (opsi == "y") {
@@ -191,12 +199,21 @@ void cariJamDokter(List_dokter L) {
         printf("---------------------------------------------------------\n");
         printf("| KODE\t| NAMA\t\t| SPESIALIS\t| JAM OPERASI\t|\n");
         printf("---------------------------------------------------------\n");
-        cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
-        printf("---------------------------------------------------------\n");
+
+        P = first(L);
+
+        while (P != NULL) {
+            if (awal >= info(P).jam_awal  && akhir <= info(P).jam_akhir){
+                cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
+                printf("---------------------------------------------------------\n");
+            }
+            P = next(P);
+        }
         cout << "Tekan apapun untuk kembali" << endl;
         cin >> opsi;
     }
 }
+
 
 void cariKodeDokter(List_dokter L) {
     string kode, opsi;
@@ -311,7 +328,7 @@ address_dokter findElmJ(List_dokter L, int awal, int akhir) {
     */
     address_dokter P = first(L);
     do {
-        if(info(P).jam_awal >= awal || info(P).jam_akhir <= akhir) {
+        if(awal >= info(P).jam_awal && akhir <= info(P).jam_akhir) {
             return P;
         }
         P = next(P);
@@ -354,42 +371,3 @@ int countDokter(List_dokter L){
 
     return i;
 }
-/* void data(int &x){
-    int y;
-
-    cout << "Data" << endl;
-    cout << "1. Dokter" << endl;
-    cout << "2. Pasien" << endl;
-    cout << "Pilihan :";
-    cin >> y;
-    if (y == 1) {
-        menuDokter(x);
-    } else if (y == 2) {
-        menuPasien(x);
-    } else {
-        cout << "Pilihan Tidak ada" << endl;
-    }
-}
-
-void menuDokter(int &x){
-    List_dokter LD;
-    address_dokter prec, p;
-    string kode;
-    if (x == 1) {
-        isiDokter(LD);
-    } else if (x == 2) {
-        //deleteElm(L, prec, p);
-    } else if (x == 3) {
-        //kunjungan
-    } else if (x == 4) {
-        //findElm(L, kode);
-    } else if (x == 5) {
-        //jadwal
-    } else if (x == 6) {
-        countDokter(LD);
-    } else if (x == 7) {
-        printInfo(LD);
-    } else {
-        //start();
-    }
-} */
