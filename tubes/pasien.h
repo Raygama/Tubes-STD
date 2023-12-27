@@ -14,7 +14,6 @@ using namespace std;
 struct infotype_pasien {
     string nama;
     int id, umur;
-    bool status;
 };
 
 typedef struct elmlist_pasien *address_pasien;

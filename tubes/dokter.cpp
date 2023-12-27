@@ -298,7 +298,7 @@ address_dokter findElm(List_dokter L, string kode) {
             return P;
         }
         P = next(P);
-    } while(P != first(L));
+    } while(P != NULL);
     return NULL;
 }
 
@@ -315,7 +315,7 @@ address_dokter findElmS(List_dokter L, string SP) {
             return P;
         }
         P = next(P);
-    } while(P != first(L));
+    } while(P != NULL);
     return NULL;
 }
 
@@ -332,7 +332,7 @@ address_dokter findElmJ(List_dokter L, int awal, int akhir) {
             return P;
         }
         P = next(P);
-    } while(P != first(L));
+    } while(P != NULL);
     return NULL;
 }
 
