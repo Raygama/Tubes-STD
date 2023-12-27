@@ -322,11 +322,17 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD) {
 }
 
 void selesaiKunjungan(List_relasi LR, List_pasien &LP) {
-    string nama;
-    address_pasien P;
+    string pasien, dokter;
+    address_pasien P, D, R, temp;
 
     cout << "Masukan nama pasien yang kunjungannya sudah selesai: ";
-    cin >> nama;
+    cin >> pasien;
     //P = findElm(LP, P);
+    cout << "Masukan nama dokter yang kunjungannya sudah selesai: ";
+    cin >> dokter;
+    //D = findElm(LD, P);
 
+    //R = findElm(LR, LP, LD);
+    //deleteElm(L, prec, temp)
 }
+

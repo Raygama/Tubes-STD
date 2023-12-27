@@ -49,6 +49,7 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD);
 void showKunjunganPasien(List_relasi LR, List_pasien LP);
 void showKunjunganDokter(List_relasi LR, List_dokter LD);
 void showAllKunjungan(List_relasi L);
+void selesaiKunjungan(List_relasi LR, List_pasien &LP);
 
 address_relasi alokasi( address_dokter P, address_pasien C);
 void dealokasi(address_relasi &P);

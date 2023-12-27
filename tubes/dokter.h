@@ -48,6 +48,7 @@ address_dokter findElm(List_dokter L, string kode);
 address_dokter findElmS(List_dokter L, string SP);
 address_dokter findElmJ(List_dokter L, int awal, int akhir);
 void printInfo(List_dokter L);
-int countDokter(List_dokter L);
+int countDokter(List_dokter L, string &x);
+void countDataDokter(List_dokter L);
 
 #endif // DOKTER_H_INCLUDED

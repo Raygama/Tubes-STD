@@ -115,12 +115,12 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 cin >> opsi;
             } while (opsi != 2);
         } else if (x == 8) {
-            cout << "Opsi 2" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
+            cout << "Ingin menampilkan jumlah dokter?" << endl;
+            cout << "1. iya" << endl;
+            cout << "2. tidak" << endl;
             cin >> opsi;
             if (opsi == 1) {
-                //data(x);
+                countDataDokter(LD);
             } else {
                 continue;
             }

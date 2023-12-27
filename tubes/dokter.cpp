@@ -203,7 +203,7 @@ void cariJamDokter(List_dokter L) {
         P = first(L);
 
         while (P != NULL) {
-            if (awal >= info(P).jam_awal  && akhir <= info(P).jam_akhir){
+            if (awal <= info(P).jam_awal  && info(P).jam_akhir <= akhir){
                 cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
                 printf("---------------------------------------------------------\n");
             }
@@ -328,7 +328,7 @@ address_dokter findElmJ(List_dokter L, int awal, int akhir) {
     */
     address_dokter P = first(L);
     do {
-        if(awal >= info(P).jam_awal && akhir <= info(P).jam_akhir) {
+        if(awal >= info(P).jam_awal || akhir <= info(P).jam_akhir) {
             return P;
         }
         P = next(P);
@@ -359,15 +359,56 @@ void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p) {
     }
 }
 
-int countDokter(List_dokter L){
-    address_dokter p;
-    int i = 0;
 
-    p = first(L);
-    while (p != NULL) {
-        i++;
-        p = next(p);
+void countDataDokter(List_dokter L) {
+  address_dokter p, Q, R, S;
+  int i = 0;
+  int l = 0;
+  p = first(L);
+
+  // Menghitung jumlah seluruh dokter
+  while (p != NULL) {
+    i++;
+    p = next(p);
+  }
+  cout << "Jumlah Dokter adalah : " << i << endl;
+  cout << "Keterangan :" << endl;
+
+  Q = first(L);
+  R = first(L);
+
+  // Menampilkan setiap spesialis yang ada
+  while (Q != NULL) {
+    bool isDuplicate = false;
+    string spesialis = info(Q).spesialis;
+
+    // Cek apakah spesialis sudah pernah ditampilkan sebelumnya
+    address_dokter temp = first(L);
+    while(temp != Q) {
+      if(info(temp).spesialis == spesialis) {
+        isDuplicate = true;
+        break;
+      }
+      temp = next(temp);
     }
 
-    return i;
+    // Cetak spesialis jika belum pernah ditampilkan sebelumnya
+    if(!isDuplicate) {
+      address_dokter D = first(L);
+      int sum = 0;
+      while(D != NULL){
+        if(info(D).spesialis == spesialis) {
+            sum++;
+        }
+        D = next(D);
+      }
+      l++;
+      cout << "|\t" << l << ". " << spesialis << " : ";
+      cout << sum << "\t\t|" << endl;
+    }
+
+    Q = next(Q);
+    R = Q;
+  }
+  cout << endl;
 }
