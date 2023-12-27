@@ -22,7 +22,7 @@ bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi
     }
     while (R != NULL) {
         if (dokter(R) == D) {
-            if ((jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir) || (jam < info(R).jamAwal && jam+durasi > info(R).jamAkhir)) {
+            if ((jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir) || (jam > info(R).jamAwal && jam < info(R).jamAkhir)) {
                 return false;
             }
         }
@@ -45,7 +45,7 @@ void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR) {
     address_relasi P = first(LR);
     while(P !=NULL) {
         if (dokter(P) == D) {
-            cout << info(pasien(P)).id << " " << info(pasien(P)).nama << " " << info(pasien(P)).umur << info(pasien(P)).status << endl;
+            cout << info(pasien(P)).id << " " << info(pasien(P)).nama << " " << info(pasien(P)).umur << endl;
         }
         P = next(P);
     }
@@ -76,15 +76,18 @@ void insertLast(List_relasi &L, address_relasi P) {
 
 void showAllKunjungan(List_relasi L) {
     address_relasi P = first(L);
+    int sum = 0;
     string input;
     printf("-------------------------------------------------\n");
     printf("| DOKTER\t| PASIEN\t| JAM KUNJUNGAN\t|\n");
     printf("-------------------------------------------------\n");
     while(P !=NULL) {
+        sum++;
         cout << "| " << info(dokter(P)).nama << "\t\t| " << info(pasien(P)).nama << "\t\t| " << info(P).jamAwal << " sd " << info(P).jamAkhir << "\t| " << endl;
         P = next(P);
     }
     printf("-------------------------------------------------\n");
+    cout << "Terdapat total " << sum << " kunjungan" << endl;
 }
 
 
@@ -240,6 +243,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
 
 void showKunjunganPasien(List_relasi LR, List_pasien LP) {
     string nama;
+    int sum = 0;
     bool found = false;
     address_pasien P;
     address_relasi R = first(LR);
@@ -266,17 +270,20 @@ void showKunjunganPasien(List_relasi LR, List_pasien LP) {
             R = first(LR);
             while ( R != NULL) {
                 if (pasien(R) == P) {
+                    sum++;
                     cout << "| " << info(dokter(R)).kode << "\t| " <<  info(dokter(R)).nama << "\t\t| " <<  info(dokter(R)).spesialis << "\t\t|  " <<  info(dokter(R)).jam_awal << " s/d " <<  info(dokter(R)).jam_akhir << "\t| " << endl;
                 }
                 R = next(R);
             }
             printf("---------------------------------------------------------\n");
+            cout << "Terdapat total " << sum << " kunjungan" << endl;
         }
     }
 }
 
 void showKunjunganDokter(List_relasi LR, List_dokter LD) {
     string kode;
+    int sum = 0;
     bool found = false;
     address_dokter D;
     address_relasi R = first(LR);
@@ -296,18 +303,20 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD) {
         if (!found) {
             cout << "Tidak ada kunjungan untuk dokter ini" << endl;
         } else {
-            printf("======LIST KUNJUNGAN DOKTER======\n");
-            printf("---------------------------------\n");
-            printf("| ID\t| NAMA\t\t| UMUR\t|\n");
-            printf("---------------------------------\n");
+            printf("============LIST KUNJUNGAN DOKTER============\n");
+            printf("---------------------------------------------\n");
+            printf("| ID\t| NAMA\t\t| UMUR\t| JAM KUNJUNGAN\t|\n");
+            printf("---------------------------------------------\n");
             R = first(LR);
             while ( R != NULL) {
                 if (dokter(R) == D) {
-                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << endl;
+                    sum++;
+                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;;
                 }
                 R = next(R);
             }
             printf("---------------------------------\n");
+            cout << "Terdapat total " << sum << " kunjungan" << endl;
         }
     }
 }

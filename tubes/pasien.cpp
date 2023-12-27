@@ -8,7 +8,6 @@ void createList(List_pasien &L) {
 address_pasien alokasi(infotype_pasien x) {
     address_pasien P = new elmlist_pasien;
     x.id = 0;
-    x.status = false;
     info(P) = x;
     next(P) = NULL;
     prev(P) = NULL;
