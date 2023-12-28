@@ -67,7 +67,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "MLN";
     xD.nama = "Melin";
-    xD.spesialis = "Dalam";
+    xD.spesialis = "Mata";
     xD.jam_awal = 10;
     xD.jam_akhir = 14;
     D = alokasi(xD);
@@ -75,7 +75,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "ABY";
     xD.nama = "Abiyu";
-    xD.spesialis = "Dalam";
+    xD.spesialis = "THT";
     xD.jam_awal = 12;
     xD.jam_akhir = 16;
     D = alokasi(xD);
@@ -83,7 +83,7 @@ void isiDokter(List_dokter &L) {
 
     xD.kode = "HTS";
     xD.nama = "Haris";
-    xD.spesialis = "Paru";
+    xD.spesialis = "Dalam";
     xD.jam_awal = 18;
     xD.jam_akhir = 22;
     D = alokasi(xD);
@@ -94,6 +94,46 @@ void isiDokter(List_dokter &L) {
     xD.spesialis = "Anak";
     xD.jam_awal = 14;
     xD.jam_akhir = 18;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "ANA";
+    xD.nama = "Ana";
+    xD.spesialis = "Dalam";
+    xD.jam_awal = 8;
+    xD.jam_akhir = 12;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "BAY";
+    xD.nama = "Bayu";
+    xD.spesialis = "Anak";
+    xD.jam_awal = 10;
+    xD.jam_akhir = 14;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "CIN";
+    xD.nama = "Cinta";
+    xD.spesialis = "Mata";
+    xD.jam_awal = 12;
+    xD.jam_akhir = 16;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "DAN";
+    xD.nama = "Dana";
+    xD.spesialis = "Kulit";
+    xD.jam_awal = 14;
+    xD.jam_akhir = 18;
+    D = alokasi(xD);
+    insertLast(L, D);
+
+    xD.kode = "RAT";
+    xD.nama = "Ratna";
+    xD.spesialis = "THT";
+    xD.jam_awal = 16;
+    xD.jam_akhir = 20;
     D = alokasi(xD);
     insertLast(L, D);
 }
