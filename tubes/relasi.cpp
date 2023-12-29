@@ -100,6 +100,7 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
         if (dokter(R) == D) {
             found = true;
         }
+        R = next(R);
     }
 
     cout << endl;
@@ -215,7 +216,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
     address_pasien p;
     address_dokter D;
     string opsi;
-    bool availability;
+    bool availability = false;
 
     cout << "Masukan nama pasien: " << endl;
     cin >> xP.nama;
@@ -238,6 +239,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
         cin >> kode;
         D = findElm(LD, kode);
     }
+
     showKesibukanDokter(LR, D);
     cout << endl;
 
@@ -270,6 +272,9 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
 
         availability = cekAvailabilityDokter(LR, D, jam, durasi);
     }
+
+    cout << "Kunjungan berhasil dijadwalkan, tekan apapun untuk kembali" << endl;
+    cin >> opsi;
 
     address_relasi R = alokasi(D, p);
     info(R).jamAwal = jam;
