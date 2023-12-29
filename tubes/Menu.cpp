@@ -132,7 +132,15 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 continue;
             }
         } else if (x == 11) {
-
+            cout << "Ingin menampilkan jumlah pasien?" << endl;
+            cout << "1. iya" << endl;
+            cout << "2. tidak" << endl;
+            cin >> opsi;
+            if (opsi == 1) {
+                cout << "Jumlah Pasien : " << countPasien(LP) << endl;
+            } else {
+                continue;
+            }
         } else if (x == 12) {
             printInfo(LD);
         } else if (x == 13) {

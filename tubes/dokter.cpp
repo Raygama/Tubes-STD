@@ -422,6 +422,8 @@ void countDataDokter(List_dokter L) {
   R = first(L);
 
   // Menampilkan setiap spesialis yang ada
+  cout << "---------------------------------" << endl;
+  cout << "| No\t| " << "Spesialis" << "\t|" << "Jumlah" << "\t|" << endl;
   while (Q != NULL) {
     bool isDuplicate = false;
     string spesialis = info(Q).spesialis;
@@ -447,12 +449,13 @@ void countDataDokter(List_dokter L) {
         D = next(D);
       }
       l++;
-      cout << "|\t" << l << ". " << spesialis << " : ";
-      cout << sum << "\t\t|" << endl;
+      cout << "| " << l << "\t| " << spesialis << "\t\t|";
+      cout << sum << "\t|" << endl;
     }
 
     Q = next(Q);
     R = Q;
   }
+  cout << "---------------------------------" << endl;
   cout << endl;
 }
