@@ -23,6 +23,12 @@ void penutup() {
     cout << "=============================================" << endl;
 }
 
+void showCurrentTime() {
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    cout << (now->tm_hour) << ":" << (now->tm_min);
+}
+
 void start(List_dokter &LD, List_pasien &LP, List_relasi &LR) {
     int x;
 
@@ -42,18 +48,23 @@ void menuAwal(){
     cout << "||                PILIH MENU               ||" << endl;
     cout << "|| 1. Mendaftarkan Dokter                  ||" << endl;
     cout << "|| 2. Mendaftarkan Pasien                  ||" << endl;
-    cout << "|| 3. Menghapus data Dokter                ||" << endl; //berserta relasinya atau tidak
+    cout << "|| 3. Menghapus data Dokter                ||" << endl;
     cout << "|| 4. Mencari data Dokter                  ||" << endl;
     cout << "|| 5. Mencari data Pasien                  ||" << endl;
     cout << "|| 6. Menyelesaikan Kunjungan Dokter       ||" << endl;
     cout << "|| 7. Menjadwalkan Kunjungan Dokter        ||" << endl;
-    cout << "|| 8. Menghitung jumlah data Dokter        ||" << endl;
-    cout << "|| 9. Menghitung jumlah data Pasien        ||" << endl;
-    cout << "|| 10. Menampilkan data Dokter             ||" << endl;
-    cout << "|| 11. Menampilkan data Pasien             ||" << endl;
-    cout << "|| 12. Menampilkan data Kunjungan          ||" << endl;
-    cout << "|| 13. Quit                                ||" << endl;
+    cout << "|| 8. Mengubah Kunjungan Dokter            ||" << endl;
+    cout << "|| 9. Membatalkan Kunjungan Dokter         ||" << endl;
+    cout << "|| 10. Menghitung jumlah data Dokter       ||" << endl;
+    cout << "|| 11. Menghitung jumlah data Pasien       ||" << endl;
+    cout << "|| 12. Menampilkan data Dokter             ||" << endl;
+    cout << "|| 13. Menampilkan data Pasien             ||" << endl;
+    cout << "|| 14. Menampilkan data Kunjungan          ||" << endl;
+    cout << "|| 15. Quit                                ||" << endl;
     cout << "=============================================" << endl;
+    cout << "========== CURRENT TIME: ";
+    showCurrentTime();
+    cout << " ==============" << endl;
 }
 
 void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
@@ -97,15 +108,7 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
         } else if (x == 5) {
             cariDataPasien(LP);
         } else if (x == 6) {
-            cout << "Opsi 6" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
+            selesaiKunjungan(LR, LP, LD);
         } else if (x == 7) {
             do {
                 jadwalKunjungan(LR, LP, LD);
@@ -115,6 +118,10 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
                 cin >> opsi;
             } while (opsi != 2);
         } else if (x == 8) {
+            editKunjungan(LR, LP, LD);
+        } else if (x == 9) {
+            batalKunjungan(LR, LP, LD);
+        } else if (x == 10) {
             cout << "Ingin menampilkan jumlah dokter?" << endl;
             cout << "1. iya" << endl;
             cout << "2. tidak" << endl;
@@ -124,21 +131,13 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             } else {
                 continue;
             }
-        } else if (x == 9) {
-            cout << "Opsi 2" << endl;
-            cout << "1. [WIP]" << endl;
-            cout << "2. Back" << endl;
-            cin >> opsi;
-            if (opsi == 1) {
-                //data(x);
-            } else {
-                continue;
-            }
-        } else if (x == 10) {
-            printInfo(LD);
         } else if (x == 11) {
-            printInfo(LP);
+
         } else if (x == 12) {
+            printInfo(LD);
+        } else if (x == 13) {
+            printInfo(LP);
+        } else if (x == 14){
             cout << "Ingin melihat kunjungan siapa? " << endl;
             cout << "1. Pasien" << endl;
             cout << "2. Dokter" << endl;
@@ -151,8 +150,6 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             } else {
                 showAllKunjungan(LR);
             }
-        } else {
-            break;
         }
-    } while (x != 13);
+    } while (x != 15);
 }

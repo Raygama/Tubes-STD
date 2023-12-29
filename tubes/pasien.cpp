@@ -14,6 +14,7 @@ address_pasien alokasi(infotype_pasien x) {
     return P;
 }
 
+
 void tambahPasien(List_pasien &L) {
     int n, i;
     infotype_pasien xP;
@@ -133,7 +134,11 @@ void insertAfter(address_pasien &Prec, address_pasien P) {
 }
 
 void deleteElm(List_pasien &L, address_pasien prec, address_pasien &p) {
-    if (prec == first(L)) {
+    if (first(L) == last(L)) {
+        p = prec;
+        first(L) = NULL;
+        last(L) = NULL;
+    }else if (prec == first(L)) {
         p = prec;
         first(L) = next(p);
         prev(first(L)) = NULL;

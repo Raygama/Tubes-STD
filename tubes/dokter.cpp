@@ -378,7 +378,11 @@ address_dokter findElmJ(List_dokter L, int awal, int akhir) {
 
 
 void deleteElm(List_dokter &L, address_dokter prec, address_dokter &p) {
-    if (prec == first(L)) {
+    if (first(L) == last(L)) {
+        p = prec;
+        first(L) = NULL;
+        last(L) = NULL;
+    }else if (prec == first(L)) {
         p = prec;
         first(L) = next(p);
         prev(first(L)) = NULL;
