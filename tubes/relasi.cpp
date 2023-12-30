@@ -124,6 +124,7 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
                 cout << "| " << info(dokter(R)).nama << "\t\t| " << info(pasien(R)).nama << "\t\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;
                 R = next(R);
             }
+            R = next(R);
         }
         printf("-------------------------------------------------\n");
     } else {
