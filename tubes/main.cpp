@@ -21,6 +21,7 @@ int main()
 
     isiDokter(LD);
     isiPasien(LP);
+    isiKunjungan(LR, LD, LP);
     start(LD, LP, LR);
 
 }

@@ -87,7 +87,7 @@ void isiPasien(List_pasien &L) {
     insertLast(L, P);
 
     xP.id = 4;
-    xP.nama = "Zahwa";
+    xP.nama = "Zah";
     xP.umur = 17;
     P = alokasi(xP);
     insertLast(L, P);

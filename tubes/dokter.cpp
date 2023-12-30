@@ -220,16 +220,15 @@ void cariSpesialisDokter(List_dokter L) {
 
 void cariJamDokter(List_dokter L) {
     string opsi;
-    int awal, akhir;
+    int jam;
     address_dokter P, Q;
 
-    cout << "Masukan Jam Kerja dokter: " << endl;
-    cout << "Jam awal" << " | " << "Jam akhir" << endl;
-    cin >> awal >> akhir;
+    cout << "Masukan Jam Kerja dokter: ";
+    cin >> jam;
 
-    Q = findElmJ(L, awal, akhir);
+    Q = findElmJ(L, jam);
     if (Q == NULL) {
-        cout << "Spesialis Dokter tidak ditemukan" << endl;
+        cout << "Jam Kerja Dokter tidak ditemukan" << endl;
         cout << "Cari lagi? (y/n) ";
         cin >> opsi;
         if (opsi == "y") {
@@ -243,7 +242,7 @@ void cariJamDokter(List_dokter L) {
         P = first(L);
 
         while (P != NULL) {
-            if (awal <= info(P).jam_awal  && info(P).jam_akhir <= akhir){
+            if (info(P).jam_awal <= jam && jam <=info(P).jam_akhir){
                 cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
                 printf("---------------------------------------------------------\n");
             }
@@ -359,7 +358,7 @@ address_dokter findElmS(List_dokter L, string SP) {
     return NULL;
 }
 
-address_dokter findElmJ(List_dokter L, int awal, int akhir) {
+address_dokter findElmJ(List_dokter L, int jam) {
     /**
     * IS : List_dokter L mungkin kosong
     * FS : mengembalikan elemen dengan info nim = x.nim,
@@ -368,7 +367,7 @@ address_dokter findElmJ(List_dokter L, int awal, int akhir) {
     */
     address_dokter P = first(L);
     do {
-        if(awal >= info(P).jam_awal || akhir <= info(P).jam_akhir) {
+        if(info(P).jam_awal <= jam && jam <=info(P).jam_akhir) {
             return P;
         }
         P = next(P);

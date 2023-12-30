@@ -46,7 +46,7 @@ address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);
 address_dokter findElm(List_dokter L, string kode);
 address_dokter findElmS(List_dokter L, string SP);
-address_dokter findElmJ(List_dokter L, int awal, int akhir);
+address_dokter findElmJ(List_dokter L, int jam);
 void printInfo(List_dokter L);
 int countDokter(List_dokter L, string &x);
 void countDataDokter(List_dokter L);

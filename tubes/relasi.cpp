@@ -53,6 +53,36 @@ void insertLast(List_relasi &L, address_relasi P) {
     }
 }
 
+void isiKunjungan(List_relasi &LR, List_dokter LD, List_pasien LP){
+    address_dokter D;
+    address_pasien P;
+    address_relasi R;
+    string kode, nama;
+    int jamAwal, jamAkhir;
+
+    D = findElm(LD, "RAY");
+    P = findElm(LP, "Melin");
+    R = alokasi(D, P);
+    info(R).jamAwal = 9;
+    info(R).jamAkhir = 10;
+    insertLast(LR, R);
+
+    D = findElm(LD, "ABY");
+    P = findElm(LP, "Ray");
+    R = alokasi(D, P);
+    info(R).jamAwal = 13;
+    info(R).jamAkhir = 15;
+    insertLast(LR, R);
+
+    D = findElm(LD, "HTS");
+    P = findElm(LP, "Zah");
+    R = alokasi(D, P);
+    info(R).jamAwal = 13;
+    info(R).jamAkhir = 15;
+    insertLast(LR, R);
+
+}
+
 void showAllKunjungan(List_relasi L) {
     address_relasi P = first(L);
     int sum = 0;
@@ -200,7 +230,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
     string opsi;
     bool availability = false;
 
-    cout << "Masukan nama pasien: " << endl;
+    cout << "Masukan nama pasien: ";
     cin >> xP.nama;
     p = findElm(LP, xP.nama);
     if (p == NULL) {

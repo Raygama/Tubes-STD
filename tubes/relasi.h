@@ -57,6 +57,7 @@ address_relasi findElm(List_relasi L, address_dokter P, address_pasien C);
 void showAllKunjungan(List_relasi L);
 void showKunjunganDokter(List_relasi LR, List_dokter LD);
 void showKunjunganPasien(List_relasi LR, List_pasien LP);
+void isiKunjungan(List_relasi &LR, List_dokter LD, List_pasien LP);
 
 
 #endif // RELASI_H_INCLUDED
