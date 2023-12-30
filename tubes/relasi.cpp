@@ -31,27 +31,6 @@ bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi
     return true;
 }
 
-void cariDokter(List_dokter LD, List_pasien LP, List_relasi LR) {
-    address_dokter D;
-    string kode;
-    cout << "Masukan kode dokter yang ingin dicari: ";
-    cin >> kode;
-    D = findElm(LD, kode);
-    cout << "Data Dokter: " << endl;
-    cout << info(D).kode << " " << info(D).nama << " " << info(D).spesialis << endl;
-
-    cout << endl;
-    cout << "Data Pasien: " << endl;
-    address_relasi P = first(LR);
-    while(P !=NULL) {
-        if (dokter(P) == D) {
-            cout << info(pasien(P)).id << " " << info(pasien(P)).nama << " " << info(pasien(P)).umur << endl;
-        }
-        P = next(P);
-    }
-
-}
-
 void insertFirst(List_relasi &L, address_relasi P) {
     if(first(L) == NULL) {
         first(L) = P;
@@ -134,10 +113,6 @@ address_relasi findElm(List_relasi L, address_dokter D, address_pasien P) {
     return NULL;
 }
 
-void insertAfter(address_relasi &Prec, address_relasi P) {
-    next(P) = next(Prec);
-    next(Prec) = P;
-}
 
 void deleteElm(List_relasi &L, address_relasi prec, address_relasi &p) {
     if (first(L) == last(L)) {
@@ -179,11 +154,17 @@ void deleteDokter(List_dokter &LD, List_relasi &LR) {
         while (R != NULL) {
             if (dokter(R) == D) {
                 if (n == 0) {
+                    cout << endl;
                     cout << "Peringatan! Kunjungan dengan pasien berikut akan dibatalkan!" << endl;
-                    cout << info(pasien(R)).nama << endl;
+                    printf("=============LIST KUNJUNGAN DOKTER==============\n");
+                    printf("------------------------------------------------\n");
+                    printf("| ID\t| NAMA\t\t| UMUR\t| JAM KUNJUNGAN\t|\n");
+                    printf("------------------------------------------------\n");
+                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;
                     n++;
                 } else {
-                    cout << info(pasien(R)).nama << endl;
+                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;
+                    printf("------------------------------------------------\n");
                     n++;
                 }
             }
@@ -193,6 +174,7 @@ void deleteDokter(List_dokter &LD, List_relasi &LR) {
             deleteElm(LD, D, temp);
             cout << "Delete dokter selesai" << endl;
         } else {
+            cout << endl;
             cout << "Kunjungan dokter dengan " << n << " pasien akan terbatalkan" << endl;
             cout << "Lanjut? (y/n) ";
             cin >> opsi;
@@ -284,7 +266,7 @@ void jadwalKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
 }
 
 void showKunjunganPasien(List_relasi LR, List_pasien LP) {
-    string nama;
+    string nama, temp;
     int sum = 0;
     bool found = false;
     address_pasien P;
@@ -295,7 +277,9 @@ void showKunjunganPasien(List_relasi LR, List_pasien LP) {
     P = findElm(LP, nama);
 
     if (P == NULL) {
-        cout << "Nama pasien tidak ada" << endl;
+        cout << "Nama pasien tidak terdaftar" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> temp;
     } else {
         while ( R != NULL && !found) {
             if (pasien(R) == P) {
@@ -319,6 +303,8 @@ void showKunjunganPasien(List_relasi LR, List_pasien LP) {
             }
             printf("---------------------------------------------------------\n");
             cout << "Terdapat total " << sum << " kunjungan" << endl;
+            cout << "Tekan tombol apapun untuk kembali" << endl;
+            cin >> temp;
         }
     }
 }
@@ -355,7 +341,7 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD) {
             while ( R != NULL) {
                 if (dokter(R) == D) {
                     sum++;
-                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;;
+                    cout << "| " << info(pasien(R)).id << "\t| " << info(pasien(R)).nama << "\t\t| " << info(pasien(R)).umur << "\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;
                 }
                 R = next(R);
             }
@@ -368,7 +354,7 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD) {
 }
 
 void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD) {
-    string pasien, dokter;
+    string pasien, dokter, temp;
     bool found = false;
     address_pasien P;
     address_dokter D;
@@ -462,7 +448,7 @@ void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD) {
                             insertLast(LR, tempR);
                             cout << "Penggantian kunjungan dibatalkan" << endl;
                             cout << "Tekan tombol apapun untuk kembali" << endl;
-                            cin >> pilih;
+                            cin >> temp;
                         } else if (pilih == 1) {
                             editKunjungan(LR, LP, LD);
                         }
@@ -472,7 +458,7 @@ void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD) {
                         insertLast(LR, tempR);
                         cout << "Kunjungan berhasil diganti" << endl;
                         cout << "Tekan tombol apapun untuk kembali" << endl;
-                        cin >> pilih;
+                        cin >> temp;
                     }
                 } else if (opsi == 2) {
                     deleteElm(LR, R, tempR);
@@ -495,7 +481,7 @@ void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD) {
                             insertLast(LR, tempR);
                             cout << "Penggantian kunjungan dibatalkan" << endl;
                             cout << "Tekan tombol apapun untuk kembali" << endl;
-                            cin >> opsi;
+                            cin >> temp;
                         } else if (pilih == 1) {
                             editKunjungan(LR, LP, LD);
                         }
@@ -505,15 +491,15 @@ void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD) {
                         insertLast(LR, tempR);
                         cout << "Kunjungan berhasil diganti" << endl;
                         cout << "Tekan tombol apapun untuk kembali" << endl;
-                        cin >> pilih;
+                        cin >> temp;
                     }
                 }
-            } while (opsi < 3 && opsi > 0);
+            } while (1 <= opsi && opsi <= 2);
         }
     } else {
         cout << "Tidak ada kunjungan dengan dokter yang terjadwal" << endl;
         cout << "Tekan tombol apapun untuk kembali" << endl;
-        cin >> opsi;
+        cin >> temp;
     }
 
 }
