@@ -10,9 +10,6 @@ void createList(List_dokter &L) {
 }
 
 address_dokter alokasi(infotype_dokter x) {
-    /**
-    * FS : mengembalikan elemen list baru dengan info = x, next elemen = Nil
-    */
     address_dokter P;
     P = new elmlist_dokter;
     info(P) = x;
@@ -22,11 +19,6 @@ address_dokter alokasi(infotype_dokter x) {
 }
 
 void insertFirst(List_dokter &L, address_dokter P) {
-    /**
-    * IS : List_dokter L mungkin kosong
-    * FS : elemen yang ditunjuk P menjadi elemen pertama pada List_dokter L
-    *      next dari last elemen menunjuk ke first elemen
-    */
     if(first(L) == NULL) {
         first(L) = P;
         last(L) = P;
@@ -38,11 +30,6 @@ void insertFirst(List_dokter &L, address_dokter P) {
 }
 
 void insertLast(List_dokter &L, address_dokter P) {
-    /**
-    * IS : List_dokter L mungkin kosong
-    * FS : elemen yang ditunjuk P menjadi elemen terakhir pada List_dokter L
-    *      next dari last elemen menunjuk ke first elemen
-    */
     if(first(L) == NULL) {
         first(L) = P;
         last(L) = P;
@@ -218,13 +205,25 @@ void cariSpesialisDokter(List_dokter L) {
 
 }
 
+
+int getCurrentJam() {
+    time_t t = time(0);
+    tm* now = localtime(&t);
+    return (now->tm_hour);
+}
+
 void cariJamDokter(List_dokter L) {
     string opsi;
     int jam;
     address_dokter P, Q;
 
-    cout << "Masukan Jam Kerja dokter: ";
-    cin >> jam;
+    jam = getCurrentJam();
+    cout << "Akan menampilkan dokter yang bisa di jam " << jam << " ganti? (y/n) ";
+    cin >> opsi;
+    if (opsi == "y") {
+        cout << "Masukan Jam Kerja dokter: ";
+        cin >> jam;
+    }
 
     Q = findElmJ(L, jam);
     if (Q == NULL) {
@@ -242,7 +241,7 @@ void cariJamDokter(List_dokter L) {
         P = first(L);
 
         while (P != NULL) {
-            if (info(P).jam_awal <= jam && jam <=info(P).jam_akhir){
+            if (info(P).jam_awal <= jam && jam <info(P).jam_akhir){
                 cout << "| " << info(P).kode << "\t| " << info(P).nama << "\t\t| " << info(P).spesialis << "\t\t|  " << info(P).jam_awal << " s/d " << info(P).jam_akhir << "\t| " << endl;
                 printf("---------------------------------------------------------\n");
             }
@@ -325,12 +324,6 @@ void tambahDokter(List_dokter &L) {
 }
 
 address_dokter findElm(List_dokter L, string kode) {
-    /**
-    * IS : List_dokter L mungkin kosong
-    * FS : mengembalikan elemen dengan info nim = x.nim,
-    * FS : mengembalikan elemen dengan info = x,
-           mengembalikan Nil jika tidak ditemukan
-    */
     address_dokter P = first(L);
     do {
         if(info(P).kode == kode) {
@@ -342,12 +335,6 @@ address_dokter findElm(List_dokter L, string kode) {
 }
 
 address_dokter findElmS(List_dokter L, string SP) {
-    /**
-    * IS : List_dokter L mungkin kosong
-    * FS : mengembalikan elemen dengan info nim = x.nim,
-    * FS : mengembalikan elemen dengan info = x,
-           mengembalikan Nil jika tidak ditemukan
-    */
     address_dokter P = first(L);
     do {
         if(info(P).spesialis== SP) {
@@ -359,12 +346,6 @@ address_dokter findElmS(List_dokter L, string SP) {
 }
 
 address_dokter findElmJ(List_dokter L, int jam) {
-    /**
-    * IS : List_dokter L mungkin kosong
-    * FS : mengembalikan elemen dengan info nim = x.nim,
-    * FS : mengembalikan elemen dengan info = x,
-           mengembalikan Nil jika tidak ditemukan
-    */
     address_dokter P = first(L);
     do {
         if(info(P).jam_awal <= jam && jam <=info(P).jam_akhir) {
@@ -457,4 +438,107 @@ void countDataDokter(List_dokter L) {
   }
   cout << "---------------------------------" << endl;
   cout << endl;
+}
+
+void sortDokter(List_dokter &L) {
+    int pilih;
+    address_dokter P, Q;
+    string opsi;
+    infotype_dokter temp;
+
+
+    cout << "Silahkan masukan kategori sorting: " << endl;
+    cout << "1. Kode" << endl;
+    cout << "2. Nama" << endl;
+    cout << "3. Spesialis" << endl;
+    cout << "4. Jam Operasi Awal" << endl;
+    cout << "5. Jam Operasi Akhir" << endl;
+    cout << "Pilihan: ";
+    cin >> pilih;
+    if (pilih == 1) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).kode < info(P).kode) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 2) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).nama < info(P).nama) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 3) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).spesialis < info(P).spesialis) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 4) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).jam_awal < info(P).jam_awal) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 5) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).jam_akhir < info(P).jam_akhir) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
 }

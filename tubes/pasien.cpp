@@ -198,3 +198,52 @@ void cariDataPasien(List_pasien L) {
         cin >> opsi;
     }
 }
+
+void sortPasien(List_pasien &L) {
+    int pilih;
+    address_pasien P, Q;
+    string opsi;
+    infotype_pasien temp;
+
+
+    cout << "Silahkan masukan kategori sorting: " << endl;
+    cout << "1. Nama" << endl;
+    cout << "2. Umur" << endl;
+    cout << "Pilihan: ";
+    cin >> pilih;
+    if (pilih == 1) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).nama < info(P).nama) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 2) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).umur < info(P).umur) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
+}

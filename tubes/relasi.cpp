@@ -669,3 +669,52 @@ void selesaiKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD) {
     }
 }
 
+void sortKunjungan(List_relasi &L) {
+    int pilih;
+    address_relasi P, Q;
+    string opsi;
+    infotype_relasi temp;
+
+
+    cout << "Silahkan masukan kategori sorting: " << endl;
+    cout << "1. Jam Awal Kunjungan" << endl;
+    cout << "2. Jam Akhir Kunjungan" << endl;
+    cout << "Pilihan: ";
+    cin >> pilih;
+    if (pilih == 1) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).jamAwal < info(P).jamAwal) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    } else if (pilih == 2) {
+        P = first(L);
+        while (P != NULL) {
+            Q = P;
+            while (Q != NULL) {
+                if (info(Q).jamAkhir < info(P).jamAkhir) {
+                    temp = info(P);
+                    info(P) = info(Q);
+                    info(Q) = temp;
+                }
+                Q = next(Q);
+            }
+            P = next(P);
+        }
+        cout << "Sorting selesai" << endl;
+        cout << "Tekan tombol apapun untuk kembali" << endl;
+        cin >> opsi;
+    }
+}
+

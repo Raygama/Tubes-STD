@@ -2,6 +2,7 @@
 #define DOKTER_H_INCLUDED
 
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 #define first(L) L.first
@@ -41,7 +42,9 @@ void cariKodeDokter(List_dokter L);
 void cariJamDokter(List_dokter L);
 void cariSpesialisDokter(List_dokter L);
 void cariDataDokter(List_dokter L);
+void sortDokter(List_dokter &L);
 
+int getCurrentJam();
 address_dokter alokasi(infotype_dokter x);
 void dealokasi(address_dokter &P);
 address_dokter findElm(List_dokter L, string kode);

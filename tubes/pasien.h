@@ -37,6 +37,7 @@ void deleteElm(List_pasien &L, address_pasien prec, address_pasien &p);
 void tambahPasien(List_pasien &L);
 void cariDataPasien(List_pasien L);
 void isiPasien(List_pasien &L);
+void sortPasien(List_pasien &L);
 
 address_pasien alokasi(infotype_pasien x);
 void dealokasi(address_pasien &P);

@@ -51,6 +51,7 @@ void selesaiKunjungan(List_relasi &LR, List_pasien &LP, List_dokter LD);
 void batalKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD);
 void editKunjungan(List_relasi &LR, List_pasien LP, List_dokter LD);
 void showKesibukanDokter(List_relasi LR, address_dokter D);
+void sortKunjungan(List_relasi &L);
 
 address_relasi alokasi( address_dokter P, address_pasien C);
 address_relasi findElm(List_relasi L, address_dokter P, address_pasien C);
