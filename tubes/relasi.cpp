@@ -22,7 +22,10 @@ bool cekAvailabilityDokter(List_relasi LR, address_dokter D, int jam, int durasi
     }
     while (R != NULL) {
         if (dokter(R) == D) {
-            if ((jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir) || (jam > info(R).jamAwal && jam < info(R).jamAkhir)) {
+            /*if ((jam + durasi > info(R).jamAwal && jam + durasi < info(R).jamAkhir) || (jam > info(R).jamAwal && jam < info(R).jamAkhir)) {
+                return false;
+            }*/
+            if ((info(R).jamAwal <= jam && jam < info(R).jamAkhir) || (info(R).jamAwal < jam + durasi && jam + durasi <= info(R).jamAkhir)) {
                 return false;
             }
         }
@@ -122,7 +125,6 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
         while (R != NULL) {
             if (dokter(R) == D) {
                 cout << "| " << info(dokter(R)).nama << "\t\t| " << info(pasien(R)).nama << "\t\t| " << info(R).jamAwal << " sd " << info(R).jamAkhir << "\t| " << endl;
-                R = next(R);
             }
             R = next(R);
         }
@@ -316,6 +318,7 @@ void showKunjunganPasien(List_relasi LR, List_pasien LP) {
             if (pasien(R) == P) {
                 found = true;
             }
+            R = next(R);
         }
         if (!found) {
             cout << "Tidak ada kunjungan untuk pasien ini" << endl;
@@ -360,6 +363,7 @@ void showKunjunganDokter(List_relasi LR, List_dokter LD) {
             if (dokter(R) == D) {
                 found = true;
             }
+            R = next(R);
         }
         if (!found) {
             cout << "Tidak ada kunjungan untuk dokter ini" << endl;
