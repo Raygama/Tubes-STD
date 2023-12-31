@@ -6,8 +6,14 @@ using namespace std;
 
 void pembuka();
 
+void penutup();
+
 void menuAwal();
 
-void pilihMenu();
+void start(List_dokter &LD, List_pasien &LP, List_relasi &LR);
+
+void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR);
+
+void showCurrentTime();
 
 #endif // MENU_H_INCLUDED

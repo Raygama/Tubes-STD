@@ -1,0 +1,11 @@
+*.o
+
+*.exe
+
+*.depend
+
+*.layout
+
+tubes.depend
+tubes.layout
+
