@@ -127,9 +127,6 @@ void isiDokter(List_dokter &L) {
 
 
 void printInfo(List_dokter L) {
-    /**
-    * FS : menampilkan info seluruh elemen list L
-    */
     string input;
     address_dokter P = first(L);
     printf("---------------------------------------------------------\n");
@@ -309,6 +306,14 @@ void tambahDokter(List_dokter &L) {
     cin >> x.jam_awal;
     cout << "Mohon masukan jam akhir operasi dokter: ";
     cin >> x.jam_akhir;
+
+    while((x.jam_awal < 1 || x.jam_awal > 24) || (x.jam_akhir < 1 || x.jam_akhir > 24)) {
+        cout << "Jam operasi yang dimasukan tidak valid" << endl;
+        cout << "Mohon masukan jam awal operasi dokter: ";
+        cin >> x.jam_awal;
+        cout << "Mohon masukan jam akhir operasi dokter: ";
+        cin >> x.jam_akhir;
+    }
 
     Q = findElm(L, x.kode);
     while (Q != NULL) {

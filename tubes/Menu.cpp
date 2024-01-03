@@ -60,7 +60,8 @@ void menuAwal(){
     cout << "|| 12. Menampilkan data Dokter             ||" << endl;
     cout << "|| 13. Menampilkan data Pasien             ||" << endl;
     cout << "|| 14. Menampilkan data Kunjungan          ||" << endl;
-    cout << "|| 15. Quit                                ||" << endl;
+    cout << "|| 15. Sorting Data                        ||" << endl;
+    cout << "|| 16. Quit                                ||" << endl;
     cout << "=============================================" << endl;
     cout << "========== CURRENT TIME: ";
     showCurrentTime();
@@ -158,6 +159,20 @@ void pilihMenu(List_dokter &LD, List_pasien &LP, List_relasi &LR){
             } else {
                 showAllKunjungan(LR);
             }
+        } else if (x == 15) {
+            cout << "Pilih data yang ingin di sort" << endl;
+            cout << "1. Dokter" << endl;
+            cout << "2. Pasien" << endl;
+            cout << "3. Kunjungan" << endl;
+            cout << "Pilihan :" ;
+            cin >> opsi;
+            if (opsi == 1) {
+                sortDokter(LD);
+            } else if (opsi == 2) {
+                sortPasien(LP);
+            } else if (opsi == 3) {
+                sortKunjungan(LR);
+            }
         }
-    } while (x != 15);
+    } while (x != 16);
 }
