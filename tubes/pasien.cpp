@@ -94,9 +94,6 @@ void isiPasien(List_pasien &L) {
 }
 
 void printInfo(List_pasien L) {
-    /**
-    * FS : menampilkan info seluruh elemen list L
-    */
     string input;
     address_pasien P = first(L);
     printf("---------------------------------\n");

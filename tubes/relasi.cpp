@@ -118,6 +118,7 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
     cout << endl;
     if (found) {
         printf("===============KESIBUKAN DOKTER==================\n");
+        cout << "------------ JAM OPERASI: " << info(dokter(R)).jam_awal << " sd " << info(dokter(R)).jam_akhir << " --------------" << endl;
         printf("-------------------------------------------------\n");
         printf("| DOKTER\t| PASIEN\t| JAM KUNJUNGAN\t|\n");
         printf("-------------------------------------------------\n");
