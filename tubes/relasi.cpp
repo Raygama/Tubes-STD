@@ -80,8 +80,8 @@ void isiKunjungan(List_relasi &LR, List_dokter LD, List_pasien LP){
     D = findElm(LD, "HTS");
     P = findElm(LP, "Zah");
     R = alokasi(D, P);
-    info(R).jamAwal = 13;
-    info(R).jamAkhir = 15;
+    info(R).jamAwal = 18;
+    info(R).jamAkhir = 20;
     insertLast(LR, R);
 
 }
@@ -118,7 +118,7 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
     cout << endl;
     if (found) {
         printf("===============KESIBUKAN DOKTER==================\n");
-        cout << "------------ JAM OPERASI: " << info(dokter(R)).jam_awal << " sd " << info(dokter(R)).jam_akhir << " --------------" << endl;
+        cout << "------------ JAM OPERASI: " << info(D).jam_awal << " sd " << info(D).jam_akhir << " --------------" << endl;
         printf("-------------------------------------------------\n");
         printf("| DOKTER\t| PASIEN\t| JAM KUNJUNGAN\t|\n");
         printf("-------------------------------------------------\n");
@@ -132,6 +132,7 @@ void showKesibukanDokter(List_relasi LR, address_dokter D) {
         printf("-------------------------------------------------\n");
     } else {
         printf("===============KESIBUKAN DOKTER==================\n");
+        cout << "------------ JAM OPERASI: " << info(D).jam_awal << " sd " << info(D).jam_akhir << " --------------" << endl;
         printf("==============TIDAK ADA KESIBUKAN================\n");
     }
 }
